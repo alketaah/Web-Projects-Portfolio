@@ -1,0 +1,1303 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #000;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 10px;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+       
+        /* Main Header */
+        .main-header {
+            position: sticky;
+    top: 0;
+    
+    /* Zgjidhet problemi i renditjes: e vendos navbarin mbi të gjitha elementet e tjera */
+    z-index: 1050;
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* Navigation */
+        
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .main-nav a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 12.88px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: #ff1744;
+        }
+
+        .main-nav a.active {
+            color: #ff1744;
+        }
+
+        /* Right Side Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-btn {
+            background-color: #ff1744;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #d50032;
+            transform: scale(1.1);
+        }
+
+        .cart-btn {
+            background-color: #fff;
+            border: 2px solid #eee;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .cart-btn:hover {
+            border-color: #ff1744;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ff1744;
+            color: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .cart-text {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff1744;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 23, 68, 0.4);
+            transition: all 0.3s;
+            border: none;
+            z-index: 1000;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 23, 68, 0.6);
+        }
+
+/* Categories Section */
+.categories-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+ 
+}
+.categories-section .col::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1.1px;
+    background-color: #d3d3d3;
+    margin-bottom: 20px;
+}
+
+
+
+
+.category-card {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: none;
+    border-top: none; 
+    margin-top: 0;
+}
+
+.category-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.category-card:hover .category-image {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.4s ease;
+        }
+
+        .category-card:hover .category-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+        }
+
+        .category-title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 42px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo img {
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .category-card {
+                height: 120px;
+                margin-bottom: 15px;
+            }
+
+            .category-title {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .row.g-3 {
+                flex-direction: column;
+            }
+    .row.g-3 .col {
+        max-width: 100%;
+    }
+}        
+
+/*  Stilet Bazë */ */
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Seksioni Kryesor */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 86vh; 
+    overflow: hidden;
+}
+
+/* Karuseli (Slider) */
+.slider-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active-slide {
+    opacity: 1; 
+}
+
+/* Stili i Butonave të Shigjetave të Karuselit */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    line-height: 1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.slider-btn:hover {
+    opacity: 1;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.arrow-icon {
+    font-weight: bold;
+}
+
+/* Mbivendosja (Overlay) e Përmbajtjes dhe Teksti */
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+    background: rgba(0, 0, 0, 0.3); 
+}
+
+.text-content {
+    color: white;
+    width: 60%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3); 
+    border-radius: 5px;
+}
+
+.text-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.text-content p, .text-content li {
+    line-height: 1.6;
+}
+
+.text-content ul {
+    list-style: none;
+    margin: 10px 0;
+    padding-left: 0;
+}
+
+/* Butonat e Kategorive */
+.categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 80px;
+   
+}
+
+.category-btn {
+    display: flex; /* Bëjmë flex për të vendosur tekstin dhe shigjetën */
+    align-items: center;
+    justify-content: center; /* Qendërzon tekstin horizontalisht */
+    text-decoration: none;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 20px 40px;
+    margin: 10px 0;
+    width: 300px; 
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    
+    /* ANIMACIONI I HOVERIT DHE SHFAQJES "SI KADALE" */
+    transition: 
+        opacity 0.8s ease-out, transform 0.8s ease-out, /* Animacioni i shfaqjes */
+        background-color 0.3s ease; /* Animacioni i hover-it */
+    
+    /* Shtohet ikona shigjetë në HTML: <i class="fa-chevron-right"></i> */
+}
+
+/* Stilet e ngjyrave si në foto */
+#kuzhina-btn { background-color: #A07855; }
+#pasticeria-btn { background-color: #F79CBE; }
+#tavolina-btn { background-color: #F0A546; }
+#higjena-btn { background-color: #6CD2C9; }
+
+/* RREGULLIMI PËR ANIMACIONIN "SI KADALE" dhe HOVER-I */
+/* STILI I IKONËS SHIGJETË (duhet të shtohet në HTML me klasën fa-chevron-right) */
+.category-btn i.fa-chevron-right {
+    opacity: 0; 
+     /* Lëvizur pak majtas */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animacion i shpejtë për shigjetën */
+    margin-left: 10px; /* Hapësirë mes tekstit dhe shigjetës */
+}
+
+/* HOVER: Ndryshon Ngjyrën e Sfondit */
+.category-btn:hover {
+    background-color: #ff3b40 !important; /* Ngjyra e kuqe e Slider Revolution */
+}
+
+/* HOVER: Shfaq Shigjetën */
+.category-btn:hover i.fa-chevron-right {
+    opacity: 1; /* Shfaqet */
+    transform: translateX(0); /* Kthehet në pozicionin normal */
+}
+
+/* Animacioni i shfaqjes me vonesë  */
+.hidden {
+    opacity: 0;
+    transform: translateX(50px); /* Fillon nga poshtë (ndryshim nga translateX në translateY) */
+    pointer-events: none; /* Nuk mund të klikohet kur është i fshehur */
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0); /* Vjen në pozicionin e tij normal */
+    pointer-events: auto;
+}
+
+/* Ikonat lart djathtas */
+.currency-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #F00;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 20;
+}
+
+.scroll-up-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 20;
+    font-size: 20px;
+    line-height: 1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+
+/* Stile për sliden e dytë (Churchill) */
+.slide-type-2 {
+    /* MUND TË RREGULLOHET VETËM QENDRËZIMI VERTIKAL */
+    background-color: white; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    
+    /* Hjekim padding-top që ishte më parë, sepse "justify-content: center" e merr përsipër qendërzimin */
+    padding-top: 0; 
+}
+
+/* Kujdes! Vija ndarëse (divider) nuk mund të jetë shumë lart nëse qendërzohet. */
+.top-divider {
+    /* Mund ta heqim këtë vlerë nëse e duam në qendër: */
+    /* margin-bottom: 30px; */ 
+    
+    /* Ose mund ta mbajmë për të krijuar një ndarje vizuale nga lart */
+    position: absolute; /* E heqim nga rrjedha normale e qendërzimit */
+    top: 50px; /* Vendoset 50px larg kryes */
+    left: 5%; 
+    width: 90%;
+    height: 1px;
+    background-color: #DDD;
+    z-index: 10;
+}
+
+/* Modifikojmë pak kontainerin e logos për të balancuar vizualisht */
+.logo-container {
+    margin-top: 20px; /* Shton pak hapësirë sipër logos */
+    margin-bottom: 30px;
+    text-align: center; 
+    width: 100%;
+}
+
+/* Për të siguruar që imazhi i pjatave të qendërzohet vizualisht: */
+.image-focus-container {
+    width: 100%;
+    max-width: 1000px; 
+    /* Mbetet në qendër horizontalisht nga 'align-items: center' */
+}
+
+/* IMAZHI I LOGOS: Bëjeni atë më të vogël */
+.churchill-logo {
+    width: 35%; 
+    height: auto;
+    display: block;
+    margin: 0 auto 5px auto; /* Zvogëlojmë hapësirën poshtë logos */
+}
+
+/* Teksti Churchill nën logo */
+.logo-container h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.8em; 
+    letter-spacing: 5px;
+    color: #03204C; 
+}
+
+/* Tabs Section */
+.tabs-section {
+    text-align: center;
+    padding: 30px 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Vija e majtë */
+.tabs-section::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+    margin-right: 30px;
+}
+
+/* Vija e djathtë */
+.tabs-section::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+    margin-left: 30px;
+}
+
+/* Përmbajtja e tabs */
+.tabs-section > * {
+    flex-shrink: 0;
+}
+
+.tab-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.tab-link:hover {
+    color: rgb(0, 0, 0); 
+  
+}
+  .tab-link.active { color: #c00; /* Ngjyra e kuqe për tab-in aktiv */ 
+    font-weight: bold; }
+
+/* .tab-link.active {
+    color: #c00;
+} */
+
+/* Products Section */
+.products-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+/* Promo Banner */
+.promo-banner {
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    padding: 40px 30px;
+    color: rgb(255, 255, 255);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 450px; /* Ndryshuar nga 200px */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shtresa e background image që zmadhohet */
+.promo-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.promo-banner:hover::after {
+    transform: scale(1.1); /* Zmadhohet 10% */
+}
+
+/* Gradient overlay */
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(196, 30, 58, 0.336) 0%, rgba(196, 30, 58, 0.178) 100%);
+    z-index: 1;
+}
+/* Secondary Banner */
+.secondary-banner {
+    border-radius: 8px;
+    position: relative;
+    height: 50%;
+    min-height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.secondary-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.secondary-banner:hover img {
+    transform: scale(1.1); /* Zmadho 10% */
+}
+
+/* Product Card */
+/* ===== PRODUCT IMAGE SLIDER STYLES ===== */
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.product-image-wrapper {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.product-images-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.product-image.active {
+    opacity: 1;
+}
+
+.new-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #6c757d;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.out-of-stock-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    border-radius: 50%; 
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column; 
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 2;
+    text-align: center; 
+    line-height: 1.2; 
+    border: 2px solid #ddd;
+ }
+
+/* Shigjetat e slider-it */
+.slider-arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .slider-arrows {
+    opacity: 1;
+}
+
+.arrow-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.arrow-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.arrow-btn i {
+    color: #333;
+    font-size: 14px;
+}
+
+/* Pikat (dots) */
+.image-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 5;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: white;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* Product Info */
+.product-info {
+    padding: 5%;
+    text-align: center;
+    flex-grow: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-read-more {
+    background: rgb(255, 255, 255);
+    border: 2px solid #333;
+    color: #333;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-read-more:hover {
+    background: #000;
+    border-color:#000;
+    color: rgb(255, 255, 255);
+}
+
+/* Promo Banner */
+.promo-banner {
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    padding: 40px 30px;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(196, 30, 58, 0.3) 0%, rgba(196, 30, 58, 0.9) 100%);
+}
+
+.promo-banner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.promo-banner h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.promo-banner p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-contact {
+    background: rgb(0, 0, 0);
+    color: #fff9f9;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    align-self: flex-start;
+    font-size: 13px;
+}
+
+.btn-contact:hover {
+    background: #ff0000;
+    color: white;
+}
+.navbar {
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.menu {
+  list-style: none; /* Heq pikat e listës */
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  padding: 8px 12px;
+  display: inline-block;
+}
+
+/* Mega menu */
+.mega-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px 40px;
+  display: flex;
+  margin-left: -355px;
+  gap: 50px;
+  z-index: 999;
+  min-width: 700px;
+}
+
+.menu-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-column h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.menu-column a {
+  font-size: 14px;
+  color: #000000;
+  margin: 3px 0;
+  font-weight: 500;
+}
+
+.menu-column a:hover {
+  color: #e91e63;
+}
+
+/* Shfaq nënmenynë vetëm kur kalon miu mbi “Produkte” */
+.dropdown:hover .mega-menu {
+  display: flex;
+}
+
+/* Animacion i butë */
+.mega-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+ul, li {
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Për top-bar */
+.top-bar {
+  background: #000; /* ose ngjyra që përdor aktualisht */
+  color: white;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.top-bar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.top-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Stilimi i login-dropdown */
+.login-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.login-box {
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  padding: 20px;
+  z-index: 999;
+}
+
+.login-box h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.login-box hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.login-box label {
+  font-size: 13px;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  font-size: 13px;
+  outline: none;
+}
+
+.login-box button {
+  width: 100%;
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #444;
+}
+
+/* Shfaqet vetëm kur kursorin e vendos mbi SIGN IN */
+.login-dropdown:hover .login-box {
+  display: block;
+}
+
+/* Efekt i butë */
+.login-box {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.login-dropdown:hover .login-box {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-modal.active {
+    display: flex;
+}
+
+.search-modal-content {
+    background: white;
+    padding: 60px 40px;
+    max-width: 600px;
+    width: 90%;
+    border: 15px solid rgb(219, 219, 219);
+    position: relative;
+    text-align: center;
+}
+
+/* Close Button - Jashtë dritares */
+.close-search {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: rgb(119, 119, 119);
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.close-search::after {
+    content: 'Close (Esc)';
+    position: absolute;
+    right: 55px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-weight: normal;
+}
+
+.close-search:hover {
+    background-color: #ff1744;
+border: none;   
+ color: white;
+}
+
+.close-search:hover::after {
+    opacity: 1;
+}
+
+.search-modal-content h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.search-modal-content p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: #000000;
+}
+
+.search-submit-btn {
+    background-color: #999;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-submit-btn:hover {
+    background-color: #d62525;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .close-search {
+        top: -40px;
+        right: 0;
+    }
+    
+    .close-search::after {
+        display: none;
+    }
+}
+
+
+
+
+
+/* Stili i footer-it */
+.site-footer {
+    background-color: #282828; /* Ngjyra e zeze e thelle */
+    color: #ffffff; /* Teksti i bardhe */
+    padding: 50px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-top: auto;
+    margin-left: -800px; 
+    width: 150%;
+}
+
+
+.currency-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #F00;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 20;
+}

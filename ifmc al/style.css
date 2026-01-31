@@ -1,0 +1,1547 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+}
+
+/* Top Contact Bar */
+.top-bar {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: none;
+    margin-bottom: 0px;
+    }
+
+
+
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+.contact-item i {
+    margin-right: 8px;
+}
+
+.whatsapp-btn {
+    background-color: rgb(0,201,0);
+    color: white;
+    border: none;
+
+    padding: 10px 17px;
+    border-radius: 25px;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #00c04e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 216, 86, 0.3);
+}
+
+/* Language Wrapper */
+.language-wrapper {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.language-label {
+    pointer-events: none; /* "Language:" won't trigger hover */
+    user-select: none;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.language-selector:hover {
+    background-color: #f0f0f0;
+}
+.flag-img {
+    width: 18px;
+    height: 12px;
+    object-fit: cover;
+    margin-bottom: 0px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 0px;
+    border-radius: 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: default;
+    display: inline;
+    }
+
+/* Show dropdown on hover of language-selector only */
+.language-selector:hover .language-dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 8px;
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.language-dropdown.show {
+    display: block;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+
+.language-option:hover {
+    background-color: #f8f9fa;
+}
+
+.language-option.active {
+    background: linear-gradient(90deg, rgba(0, 210, 211, 0.1), transparent);
+    border-bottom: 2px solid #00d2d3;
+}
+
+.language-option img,
+.language-option svg {
+    width: 24px;
+    height: 18px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+/* Main Header */
+.main-header {
+    background-color: white;
+    padding: 20px 0;
+    margin-top: 16px;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+}
+
+.logo {
+    height: 42px;
+
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-nav {
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #00b894;
+}
+
+.nav-link.active {
+    color: #00b894;
+}
+
+.rezervo-btn {
+    background: #2BB3AC;
+    color: white;
+    border: none;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 20px;
+    padding-top: 10px ;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+    text-size-adjust: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.rezervo-btn i {
+    background-color: white;     /* rrethi i bardhë */
+    color: #000605;              /* ngjyra e ikonës */
+    border-radius: 50%;          /* formon rrethin */
+    width: 32px;                 /* madhësia e rrethit */
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rezervo-btn:hover {
+     background-color: #1fa4a4;   /* pak më e errët në hover */
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        margin-top: 20px;
+    }
+
+    .nav-link {
+        padding: 12px 0;
+    }
+
+    .rezervo-btn {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* --- Hover efekti për nën-menutë (dropdown) --- */
+.dropdown-menu .dropdown-item {
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: #00a582; /* e njëjta ngjyrë si menuja kryesore */
+    background-color: #f8f9fa; /* ngjyrë e lehtë prapavije për efekt vizual */
+}
+
+
+/* Kufizo lartësinë dhe shto scrollbar vertikal në dropdown */
+.dropdown-menu {
+    max-height: 250px; /* mund ta ndryshosh sipas nevojës */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin; /* për Firefox */
+    scrollbar-color: #7e7e7e #f1f1f1; /* ngjyra e thumb dhe background-it */
+}
+
+/* Stili i scrollbar-it për Chrome, Edge, Safari */
+.dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #00b894;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background-color: #00a582;
+}
+/* Kur dropdown-i është i hapur, ndrysho ngjyrën e linkut */
+.nav-item.dropdown.show > .nav-link,
+.nav-item.dropdown.show > .nav-link:focus,
+.nav-item.dropdown.show > .nav-link:active {
+    color: #00b894 !important;
+}
+
+/* Për kalim kursorin normal (hover) */
+.nav-item.dropdown .nav-link:hover {
+    color: #00b894 !important;
+}
+/* Hape dropdown-in kur kalon me maus (hover) */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Ndrysho ngjyrën e linkut kur është hover */
+.nav-item.dropdown:hover > .nav-link {
+    color: #00b894 !important;
+}
+
+/* Efekt i butë për hapje */
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+/* Teksti dhe butonat */
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 15px 0 20px 0;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.hero-content .description {
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+    color:white;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.hero-content
+ {
+  flex: 1;
+  height: 100%;
+   border-bottom-left-radius: 15%;
+}
+
+
+/* Badge në krye të titullit */
+.specialists {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 1);
+    width: 430px;
+    border-radius: 30px;
+    padding: 12px 25px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    
+    color: white;
+    font-weight: 400;
+    backdrop-filter: blur(10px);
+}
+/* Icon group - ikonat të mbivendosura */
+.icon-group {
+    display: flex;
+    margin-right: 5px;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background: #5bc95f;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-left: -18px;
+}
+
+.icon-circle:first-child {
+    margin-left: 0;
+}
+
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+.btn-green,
+.btn-blue {
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-green {
+    background: #5bc95f;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background: #4db051;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(91, 201, 95, 0.4);
+}
+
+.btn-blue {
+    background: #00b8b4;
+    color: #fff;
+}
+
+.btn-blue:hover {
+    background: #009a97;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 184, 180, 0.4);
+}
+
+/* Ikona në butonin e gjelbër */
+.btn-green::before {
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Ikona në butonin e kaltër */
+.btn-blue::before {
+    
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+/* Kolona e djathtë (fotoja) */
+.hero-image {
+  flex: 1;
+  background: url("https://ifmc.al/wp-content/uploads/2025/07/Family-Hospital-Spital-ne-Tirane-1.png") no-repeat center center/cover;
+  /* position: relative; */
+  float: right;
+  
+  width: auto;
+  
+  
+}
+
+
+
+.badge {
+  background:  rgba(248, 248, 246, 0.8) ;
+  color: #111;
+  padding: 7px 15px;
+  position: absolute;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 18px;
+  display:inline-flex; 
+  align-items: center; 
+  margin-bottom: 500%; 
+  margin-top: -280px;
+  margin-left: -350px;
+}
+
+.badge.reviews {
+  color: #00b7b3;
+  ;
+}
+.badge .icon-wrapper {
+  position: relative;
+  display: inline-block;
+  /* Margjinë mes ikonës dhe tekstit */
+  margin-right: 10px; 
+}
+
+.badge .chat-icon {
+  font-size: 1.5em; /* Madhësia e ikonës së bisedës */
+  color: #00b7b3; /* Ngjyra e gjelbër/bojëqielli si në foto */
+}
+
+.badge .star-overlay {
+  position: absolute;
+  top: -5px; /* Rregulloni pozicionin lart */
+  right: -5px; /* Rregulloni pozicionin djathtas */
+  font-size: 0.8em; /* Madhësia e yllit të vogël */
+  color: #57c45c; /* Një ngjyrë e gjelbër e lehtë për yllin */
+}
+
+
+
+/* për ta ngjitur hero section me navbar nëse navbar është fixed */
+header, nav {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Modifikimet CSS për Seksionin Kryesor */
+
+/* Seksioni kryesor */
+.hero-section {
+    display: flex;
+    align-items: stretch;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Kolona e majtë (teksti) - KËTU HIQET CLIP-PATH DHE ZVOGËLOHET PËR TË LËNË HAPËSIRË */
+.hero-content {
+    flex: 0 0 55%; /* Caktohet 55% e gjerësisë */
+    background: linear-gradient(135deg, #111 0%, #000 80%);
+    color: white;
+    padding: 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* HIQET: clip-path: polygon(0 0, 82% 0, 72% 100%, 0 100%); */
+}
+
+/* Kolona e djathtë (fotoja) - KËTU KRIJOHET MBIVENODSJA (OVERLAP) */
+.hero-image {
+    flex: 1; /* Pjesa tjetër e gjerësisë (45%) */
+    background: url("https://ifmc.al/wp-content/uploads/2025/07/Family-Hospital-Spital-ne-Tirane-1.png") no-repeat center center/cover;
+    position: relative;
+    /* Përdorim margin negativ për të mbivendosur imazhin mbi pjesën e zezë */
+    margin-left: -20%; /* Spostohet 15% majtas për të mbivendosur */
+    z-index: 1; /* Siguron që imazhi të jetë mbi pjesën e zezë në zonën e mbivendosjes */
+}
+
+/* Rregullimi i Badge-t që mos të dalin jashtë ekranit */
+.badges {
+    position: absolute;
+    bottom: 30px;
+    right: 40px; /* Vlen ende pasi ruan pozicionin brenda hero-image */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Kujdes: H1 dhe P do t'i përgjigjen kësaj CSS, por sigurohuni që të mos jenë prekur nga rregulla të tjera */
+.hero-content h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.card-header {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* me i ba rreth */
+    background-color: white; /* sfond i bardhë */
+    border: 2px solid #009a97; /* kufi blu */
+}
+
+.user-doctor,
+.truck-medical,
+.hand-holding-heart {
+    color: #009a97; /* ikona blu */
+}
+
+.user {
+    background-color: white;
+}
+
+.card {
+    border: none;
+}
+
+.card-header i {
+  color: #009a97;
+  border: none;
+  background: transparent;
+}
+
+
+.card {
+  border: 1px solid #bebbbb;       /* Vija e zezë përreth */
+  border-radius: 10px;          /* Opsionale – qoshe të rrumbullakosura */
+  padding: 10px;                /* Hapësira brenda kartës */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Hije e lehtë për pamje më profesionale */
+}
+
+/* Shton hapësirë brenda ikonave */
+.card-header {
+  background-color: #fff;       /* Sfond i bardhë për ikonën */
+  border: none;                 /* Hiq kufirin default të Bootstrap-it */
+  padding: 20px;                /* Hapësira përreth ikonës */
+  font-size: 2rem;              /* Madhësia e ikonës */
+  color: #009688;               /* Ngjyra e ikonës (ndrysho sipas dëshirës) */
+}
+
+/* Bëjmë që të gjitha kartat të jenë të njëjta në lartësi */
+.card-body {
+  padding: 15px;
+}
+
+/* Hapësirë mes kartave */
+.container .card {
+  margin: 10px;
+}
+
+
+
+/* Stilizimi i ri për Seksionin e Përfshirë */
+
+#cta-section {
+    /* Ngjyra e kërkuar: rgba(4, 166, 156, 1) */
+    background-color: rgba(4, 166, 156, 1);
+    color: white; /* Siguron që të gjithë elementët brenda të trashëgojnë ngjyrën e bardhë */
+}
+
+/* Stilizimi për ikonat/fotot (opsionale) */
+.cta-item i {
+    color: #fff; /* Sigurohu që ikonat të jenë të bardha */
+}
+
+.cta-item img {
+    /* Sigurohuni që imazhi të jetë i qendërzuar */
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid rgba(255, 255, 255, 0.5); /* Kufi i lehtë rreth fotos */
+}
+
+/* Rregullimi i Responsivitetit (Siguron padding të mirë në celular) */
+@media (max-width: 767px) {
+    #cta-section {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+}
+
+/* Seksioni: PËRSE NE (Why Us) */
+
+
+#why-us-section {
+    /* Ngjyra e kërkuar për sfondin (Green-Teal) */
+    background-color: #2BB3AC; /* ose rgba(4, 166, 156, 1) */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Stilimi i Badge-it 'PËRSE NE' */
+.why-us-badge {
+    background-color: white;
+    color: black;
+    padding: 8px 45px 8px 5px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+.why-us-badge .badge-icon-bg {
+    background-color: #2BB3AC;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+/* Stilimi i Kartelave të Informacionit */
+/* Layout horizontal për ikonat majtas + tekst djathtas */
+.info-card {
+    background: rgb(4, 110, 110);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    padding: 25px !important;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 12px;
+}
+
+
+
+.info-card i {
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 20px;
+    margin: 0;
+}
+
+.info-card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card h6 {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.info-card p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+/* Stilizimi i Imazheve të Mbivendosura */
+.image-stack-wrapper {
+    position: relative; /* Kjo duhet të jetë relative për të përmbajtur stack-un */
+    min-height: 550px; /* Jepi një lartësi bazë në desktop */
+}
+
+.image-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-stack img {
+    position: absolute;
+    width: 70%; /* Imazhi i parë i madh */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.image-top {
+    z-index: 2; /* Imazhi i sipërm */
+    top: 0;
+    right: 0; /* Rreshtohet në të djathtë */
+}
+
+.image-bottom {
+    z-index: 1; /* Imazhi i poshtëm */
+    width: 50%; /* Bëje më të vogël se i sipërmi */
+    bottom: -50px; /* Del jashtë kufirit të seksionit pak */
+    left: 0; /* Rreshtohet në të majtë */
+    border: 5px solid #2BB3AC; /* Shton kufirin me ngjyrën e sfondit si në foto */
+}
+
+
+/* Rregullimi i Responsivitetit (Për Telefon) */
+@media (max-width: 991px) {
+    #why-us-section .row {
+        flex-direction: column; /* Teksti lart, Imazhet poshtë */
+    }
+    
+    .image-stack-wrapper {
+        min-height: 300px;
+        margin-top: 50px;
+    }
+
+    /* Hiq mbivendosjen për celularë */
+    .image-stack img {
+        position: relative; /* Ktheje në relative */
+        width: 100%; 
+        margin-bottom: 20px;
+    }
+    .image-top {
+        transform: none;
+    }
+    .image-bottom {
+        display: none; /* Fsheh njërin imazh për thjeshtësi në celular */
+        bottom: auto;
+        left: auto;
+    }
+    .why-us-badge {
+        margin: 0 auto 20px auto;
+        display: flex;
+    }
+    
+}
+.mb-4 ,mb-5{
+    font-size: large;
+    font-weight: 400;
+    line-height: 27px;
+    margin-bottom: 25px;
+    
+    
+}
+
+/* Butonat e Kontaktit */
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Butoni i bardhë (Na Kontakton) */
+.white-btn {
+    background: white;
+    color: #111;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.white-btn:hover {
+    background: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    color: #111;
+}
+
+/* Butoni jeshil-turkez (Telefono Tani) */
+.teal-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.teal-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Ikona majtas */
+.contact-btn i:first-child {
+    font-size: 1.4rem;
+    margin-right: 12px;
+}
+
+/* Shigjeta djathtas */
+.contact-btn .arrow-icon {
+    font-size: 1.1rem;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.contact-btn:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .contact-btn {
+        font-size: 0.95rem;
+        padding: 20px 18px;
+    }
+    
+    .info-card {
+        padding: 20px !important;
+    }
+}
+
+/* Seksioni i Shërbimeve - Intro */
+.services-intro-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+/* Badge SHËRBIMET */
+.service-badge {
+    background: white;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    padding: 10px 30px 10px 10px;
+    font-size: 0.9rem;
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Ikona e zemrës brenda badge */
+.badge-heart-icon {
+    background: linear-gradient(135deg, #2BB3AC, #24b47e);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Titulli kryesor */
+.service-main-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Përshkrimi */
+.service-description {
+    font-size: 1.1rem;
+    color: #212121;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .service-main-title {
+        font-size: 2rem;
+    }
+    
+    .service-description {
+        font-size: 1rem;
+    }
+}
+
+/* ... Stilet e Mëparshme (service-card, service-image, etj.) ... */
+
+/* Stilet e reja për menaxhimin me JS */
+.service-slide {
+    display: none; /* Fsheh të gjitha Slides */
+    transition: opacity 0.4s ease-in-out;
+}
+
+.service-slide.active-slide {
+    display: flex; /* Shfaq Slide-in aktiv */
+    flex-wrap: wrap;
+}
+
+/* Stilet e pikave (dots) mbeten si më parë */
+.dots-container {
+    display: flex;
+    gap: 8px; 
+}
+
+.dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc; 
+    cursor: pointer; /* Shtojmë cursor: pointer */
+}
+
+.dot.active {
+    background-color: #2BB3AC; 
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+/* Kartat individuale */
+.service-card {
+  width: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card img {
+  width: 100%;
+  height: 440px;
+  border-radius: 15px;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* Teksti nën foto */
+.service-card p {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+
+  color: #000000;
+  font-size: 1rem;
+ ;
+}
+
+/* Butoni "Shiko të gjitha shërbimet" */
+.all-services-btn {
+  background-color: #ffffff; /* sfond i bardhë */
+  color: rgb(8 22 43);
+  border: 1px solid #08162b; /* kufi elegant */
+  padding: 19px 28px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+}
+
+.all-services-btn:hover {
+ background-color: #e6eaea;
+  border-color: #08162b; /* kufiri mbetet i njëjtë */
+  color: #08162b; /* ngjyra e tekstit nuk ndryshon */
+ 
+}
+/* Ngjyra e Hirtë e Prapavijës dhe Pozicionimi Relativ për Shigjetat */
+.partner-section {
+    background-color: #e5e6e7;; 
+    padding: 3rem 0;
+    position: relative;
+    
+}
+
+.partner-title {
+    color: #214f52; 
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+
+/* MARQUEE / LËVIZJA E PAFUNDME & MASKA */
+
+.marquee-container {
+    overflow: hidden;
+    padding: 20px 0;
+    white-space: nowrap; 
+    position: relative; 
+    
+    
+    /* Maska e Hirtë (Ruajtur) */
+    mask-image: linear-gradient(to right, 
+        transparent 0%, 
+        #000 15%, 
+        #000 85%, 
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(to right, 
+        transparent 0%, 
+        #000 15%, 
+        #000 85%, 
+        transparent 100%
+    );
+}
+
+.marquee-content {
+    width: 200%; 
+    display: flex;
+    animation: scroll 15s linear infinite; 
+}
+
+/* Ndalimi në HOVER */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused; 
+}
+
+/* 3. Stilizimi i Logove (Lista A dhe B) */
+.logo-list {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center; /* logot të qendrojnë afër */
+    align-items: center;
+    min-width: 100%;
+    gap: 10px; /* sa më e vogël, aq më afër logot */
+}
+
+.logo-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    flex-shrink: 0;
+    padding: 0; /* hiqet hapësira */
+}
+
+
+.logo-box {
+    width: 100%;
+    min-width: 150px; 
+    height: 100px; 
+    
+    background-color: white;
+   border: 2px solid #000; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease; 
+}
+
+/* Efekti në Hover */
+.logo-item:hover .logo-box {
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logo-image {
+    max-height: 80%;
+    width: auto;
+   
+}
+
+/* DEFINICIONI I ANIMACIONIT: Lëvizja nga e djathta në të majtë */
+@keyframes scroll {
+    from {
+        transform: translateX(0); 
+    }
+    to {
+        transform: translateX(-50%); 
+    }
+}
+
+
+/* STILIZIMI I SHIGJETAVE (Pozicionimi në mes) */
+
+.arrow {
+    position: absolute;
+    /* QENDËR vertikalisht: top 50% dhe transform translateY */
+    top: 50%; 
+    transform: translateY(-50%); 
+    
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10; /* Që të jenë sipër Marquee-s */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    font-size: 22px;
+    color: #214f52;
+}
+
+/* Efekti në hover */
+.arrow:hover {
+    background-color: #214f52;
+    color: white;
+}
+
+/* Pozicionimi horizontal */
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+
+
+/* Seksioni i Mjekëve */
+.doctors-section {
+    background-color: #f8f9fa;
+}
+
+.doctor-card {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.doctor-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.doctor-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.doctor-specialty {
+    font-size: 1.1rem;
+    color: #000000;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.view-all-btn {
+    background-color: #ffffff; /* sfond i bardhë */
+  color: rgb(8 22 43);
+  border: 1px solid #08162b; /* kufi elegant */
+  padding: 19px 28px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.view-all-btn:hover {
+    background-color: #e6eaea;
+  border-color: #08162b; /* kufiri mbetet i njëjtë */
+  color: #08162b; /* ngjyra e tekstit nuk ndryshon */
+}
+
+.arrow {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 50px;
+}
+ /* Variablat kryesore */
+:root {
+    --dark-bg: #111519;
+    --text-color: #f0f0f0;
+    --light-text: #a1a1a1;
+    --accent-color: #4CAF50; 
+}
+
+.main-footer {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    padding: 40px 0 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Stili i Kontenierit (për qendër) */
+.main-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Seksioni i sipërm (Logo dhe Text) */
+.footer-top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.footer-logo {
+    max-width: 180px;
+    height: auto;
+}
+
+.contact-text-col {
+    max-width: 600px;
+}
+
+.contact-intro {
+    font-size: 1.3rem;
+    color: #00c04e;
+    font-weight: 500;
+    text-align: left;
+    font-family: Poppins;
+}
+
+/* Ndarësi */
+.footer-divider {
+    border: none;
+    height: 1px;
+    background-color: #2b2b2b;
+    margin: 20px 0;
+}
+
+/* Seksioni kryesor i përmbajtjes (Grid/Layout) */
+.footer-content-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px 15px;
+}
+
+.footer-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-title .icon {
+    color: var(--light-text);
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+/* Kartat e Kontaktimeve (Telefon, Email, Buton) */
+.contact-info-col {
+    flex: 0 0 250px; /* Madhësi fikse për kartat */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+    background-color: #111519; /* Ngjyrë sfondi pak më e çelur */
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.3s;
+    border: solid white;
+}
+
+
+
+.contact-card .icon {
+   
+    margin-right: 15px;
+    font-size: 1.1rem;
+    width: 40px;
+}
+
+.contact-card span {
+    flex-grow: 1;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.contact-card .arrow {
+    color: var(--light-text);
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.contact-card:hover .arrow {
+    transform: translateX(5px);
+    color: var(--accent-color);
+}
+
+/* Kolonat e Navigimit (Shërbimet, Navigimi) */
+.footer-links-col {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 10px;
+}
+
+.footer-links-list a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-links-list a:hover {
+    color: var();
+}
+
+/* Kolona e Adresës dhe Orarit */
+.address-schedule-col {
+    flex: 0 0 200px;
+}
+
+.address-block, .schedule-block {
+    margin-bottom: 30px;
+}
+
+.address-block p, .schedule-block p {
+    color: var(--light-text);
+    margin-top: 5px;
+    font-size: 0.95rem;
+}
+
+/* Seksioni i Fundit (Copyright dhe Social) */
+.footer-bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.copyright {
+    color: var(--light-text);
+    font-size: 0.85rem;
+    margin: 5px 0;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 5px 0;
+}
+
+.follow-text {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.social-icon {
+    color: var(--light-text);
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+
+.policy-links {
+    display: flex;
+    gap: 10px;
+    font-size: 0.85rem;
+    margin: 5px 0;
+}
+
+.policy-links a {
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+
+
+.policy-links span {
+    color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footer-top-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .contact-intro {
+        text-align: left;
+    }
+
+    .footer-content-section {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .contact-info-col {
+        flex: 1 1 100%; /* Merr gjithë gjerësinë në ekranet e vogla */
+        margin-bottom: 20px;
+    }
+
+    .footer-links-col, .address-schedule-col {
+        flex: 1 1 45%; /* Dy kolona në rresht */
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-links-col, .address-schedule-col {
+        flex: 1 1 100%; /* Një kolonë në rresht në celularë */
+    }
+
+    .footer-bottom-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .social-links, .policy-links {
+        justify-content: center;
+    }
+}
+

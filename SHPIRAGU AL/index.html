@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shpiragu - Header Navigation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <!-- Top Bar -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <a href="questions.html">PYETJE TË SHPESHTA</a>
+        <span class="text-white-50">|</span>
+        <a href="contact.html">NA KONTAKTONI</a>
+      </div>
+
+      <!-- Seksioni i Sign In me nënmeny login -->
+      <div class="login-dropdown">
+        <a href="#" class="signin-link">SIGN IN</a>
+
+        <div class="login-box">
+          <h3>LOGIN FORM</h3>
+          <hr>
+          <form>
+            <label>Username or email *</label>
+            <input type="text" >
+
+            <label>Password *</label>
+            <input type="password" >
+
+            <button type="submit">LOGIN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-lg-3 col-md-12 text-center text-lg-start mb-3 mb-lg-0">
+                    <div class="logo">
+                        <img src="https://shpiragu.al/wp-content/uploads/2018/09/shpiragu-logo-new.png" alt="Site logo" title="" description="">
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="col-lg-6 col-md-12 text-center mb-3 mb-lg-0">
+                    <nav class="main-nav justify-content-center">
+                        <a href="#" class="active">KREU</a>
+                        <a href="about.html">RRETH NESH</a>
+                        <li class="dropdown">
+      <a href="#">Produkte ▾</a>
+
+      <!-- Nënmenyja që do të shfaqet vetëm me hover -->
+      <div class="mega-menu">
+        <div class="menu-column">
+          <a href="kitchen.html">Kuzhina</a>
+          <a href="#">Furra</a>
+          <a href="#">Kuzhina Modulare</a>
+          <a href="#">Frigo</a>
+          <a href="#">Lavastovilje</a>
+          <a href="#">Mobilje Inox</a>
+          <a href="#">Përpunimi</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+          <a href="confectionery.html">Pasticeria</a>
+          <a href="#">Furra</a>
+          <a href="#">Ekspozitor</a>
+          <a href="#">Produktor Akulli</a>
+          <a href="#">Makineri Akullore</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+         <a href="table.html">Tavolina</a>
+          <a href="#">Porcelan</a>
+          <a href="#">Inox</a>
+          <a href="#">Kristal Qelq</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+          <a href="hygiene.html">Higjena</a>
+          <a href="#">Aksesore Pastrimi</a>
+          <a href="#">Detergjente Profesionale</a>
+          <a href="#">Lavanderia</a>
+          <a href="#">Oferta</a>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="contact.html">Kontakt</a></li>
+  </ul>
+                    </nav>
+                </div>
+
+                <!-- Actions -->
+               <div class="col-lg-3 col-md-12">
+    <div class="header-actions justify-content-center justify-content-lg-end">
+        <button class="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <a href="cart.html" class="cart-btn" style="text-decoration: none; color: inherit;">
+            <div class="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-badge">0</span>
+            </div>
+            <span class="cart-text">Cart: € 0.00</span>
+        </a>
+    </div>
+</div>
+                     <div class="currency-icon">€</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+    <div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+        <button class="close-search" onclick="closeSearch()">×</button>
+        <h2>SEARCH ENGINE</h2>
+        <p>Use this form to find things you need on this site</p>
+        <form class="search-form">
+            <input type="text" placeholder="Kërko për..." class="search-input">
+            <button type="submit" class="search-submit-btn">KËRKO</button>
+        </form>
+
+    </div>
+</div>
+ <section class="hero-section">
+    <div class="slider-container">
+        <button class="slider-btn prev-btn"><span class="arrow-icon">&lt;</span></button>
+        <button class="slider-btn next-btn"><span class="arrow-icon">&gt;</span></button>
+
+        <div class="slide active-slide slide-type-1" style="background-image: url(https://shpiragu.al/wp-content/uploads/2020/05/banner_web-e1589560171929.jpg);">
+            <div class="content-overlay">
+                <div class="text-content">
+                    <h1>Porosisni Online!</h1>
+                    <p>Tashmë mund të porosisni të gjitha produktet e Shpriragut nëpërmjet faqes tonë të re online...</p>
+                    <ul>
+                        <li>- Specifikime Teknike</li>
+                        <li>- Ngjyra</li>
+                        <li>- Dimensionet</li>
+                        <li>- Pesha</li>
+                    </ul>
+                    <p class="call-to-action">Klikoni një kategori për të parë më shumë!</p>
+
+                       
+                     
+                </div>
+                <div class="categories">
+                    <a href="kitchen.html" class="category-btn hidden" id="kuzhina-btn" data-delay="0s">KUZHINA  <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="confectionery.html" class="category-btn hidden" id="pasticeria-btn" data-delay="0.3s">PASTICERIA  <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="table.html" class="category-btn hidden" id="tavolina-btn" data-delay="0.6s">TAVOLINA  <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="hygiene.html" class="category-btn hidden" id="higjena-btn" data-delay="0.9s">HIGJENA  <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+
+               
+            </div>
+           
+        </div>
+        
+        <div class="slide slide-type-2">
+            <div class="top-divider"></div>
+            
+            <div class="slide-content-2">
+                <div class="logo-container">
+                    <img src="images/ChinaLogo.jpg" alt="Churchill Logo" class="churchill-logo">
+                   
+                </div>
+
+                <div class="image-focus-container">
+                    <img src="images/foto.jpg" alt="Pjatat Churchill" class="focus-image">
+                </div>
+            </div>
+        </div>
+
+    </div> 
+    
+    
+
+    </div> <div class="slider-dots-container">
+        </div>
+    
+    </section>
+
+    <script src="script.js"></script>
+    
+
+    <!-- Categories Section -->
+   <section class="categories-section">
+  <div class="container">
+    <div class="row g-3">
+      <!-- Kuzhina -->
+      <div class="col">
+        <div class="category-card" onclick="window.location.href='kitchen.html'">
+          <img src="https://shpiragu.al/wp-content/uploads/2019/08/kuzhina-1.png" 
+               alt="Kuzhina" class="category-image">
+          <div class="category-overlay">
+            <h3 class="category-title">KUZHINA</h3>
+          </div>
+        </div>
+                </div>    
+
+                <!-- Pastiçeri -->
+                <div class="col">
+                    <div class="category-card" onclick="window.location.href='confectionery.html'">
+                        <img src="https://shpiragu.al/wp-content/uploads/2019/08/pasticeri-2.png" alt="Pastiçeri" class="category-image">
+                        <div class="category-overlay">
+                            <h3 class="category-title">PASTIÇERI</h3>
+                        </div>
+                    </div>     
+                </div>
+
+                <!-- Tavolina -->
+                <div class="col">
+                    <div class="category-card" onclick="window.location.href='table.html'">
+                        <img src="https://shpiragu.al/wp-content/uploads/2019/08/tavolia-3.png" alt="Tavolina" class="category-image">
+                        <div class="category-overlay">
+                            <h3 class="category-title">TAVOLINA</h3>
+                        </div>
+                    </div>
+                </div>                 
+
+                <!-- Higjiena -->
+                <div class="col">
+                    <div class="category-card" onclick="window.location.href='hygiene.html'">
+                        <img src="https://shpiragu.al/wp-content/uploads/2020/01/Lavanderia-ne-faqe-kryesore-370x230.png" alt="Higjena" class="category-image">
+                        <div class="category-overlay">
+                            <h3 class="category-title">HIGJENA</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekte -->
+                <div class="col">
+                    <div class="category-card" onclick="window.location.href='projects.html'">
+                        <img src="https://shpiragu.al/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-04-at-17.53.31.jpeg" alt="Projekte" class="category-image">
+                        <div class="category-overlay">
+                            <h3 class="category-title">PROJEKTE</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- FILLIMI I SEKSIONIT TË PRODUKTEVE TË REJA DHE TË VEÇANTA -->
+
+    <!-- Tabs Navigation -->
+    <div class="tabs-section">
+        <a href="#" class="tab-link active" data-tab="te-reja">TË REJA</a>
+        <span style="color: #333; font-size: 20px;">■</span>
+        <a href="#" class="tab-link" data-tab="te-vecanta">TË VEÇANTA</a>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <!-- TË REJA PRODUCTS (Visible by default) -->
+            <div id="te-reja" class="product-content">
+                <div class="row g-4 mb-4">
+                    <!-- Promo Banner -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="promo-banner" style="background-image: url('https://shpiragu.al/wp-content/uploads/2024/08/vitrina-me-color-540x691.jpg');">
+                            <h2>VITRINA PËR AKULLORE DHE ËMBËLSIRA</h2>
+                            <p>Transformoni biznesin tuaj me vitrinën për akullore dhe ëmbëlsira nga marka IFI</p>
+                            <button class="btn-contact">NA KONTAKTONI</button>
+                        </div>
+                    </div>
+                    <!-- Product 1 - Vitrine Ngrohese -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <span class="new-badge">NEW</span>
+                                <img src="https://shpiragu.al/wp-content/uploads/2021/02/Vitrine-chauffante-WD-100-300x300.jpg" alt="VITRINE NGROHESE ME 1 NIVEL" class="product-image active">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">VITRINE NGROHESE ME 1 NIVEL</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 - Krepiere -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <span class="new-badge">NEW</span>
+                                <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/CSE-400-1024x669-1-300x300.jpg" alt="Krepiere 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/CSG-400-300x300.jpg" alt="Krepiere 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">KREPIERE PROFESIONALE ELEKTRIKE DHE GAZ</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 - Waffles -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <span class="new-badge">NEW</span>
+                                <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/ges-10-300x300.jpg" alt="Waffles 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/GAUFRIER-GES-20-300x300.jpg" alt="Waffles 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">PAJISJE PER WAFFLES</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <!-- Secondary Banner -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="secondary-banner">
+                            <img src="https://shpiragu.al/wp-content/uploads/2024/08/454203686_1152071602492688_8797264381312724286_n.jpg" alt="Banner">
+                        </div>
+                    </div>
+                    <!-- Product 4 - Waffles Rrethore -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <span class="new-badge">NEW</span>
+                                <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/Gaufrier-ROND-GES-75-HD-300x300.jpg" alt="Waffles Rrethore 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/GP_R0A2317-det-300x300.jpg" alt="Waffles Rrethore 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">PAJISJE PER WAFFLES FORME RRETHORE</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 5 - Waffles Cilindrike -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <span class="new-badge">NEW</span>
+                                <img src="https://shpiragu.al/wp-content/uploads/2021/02/GAUFRIER-GES-80-1-300x300.jpg" alt="Pajisje per Waffles ne forme Cilindrike" class="product-image active">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">PAJISJE PER WAFFLES NE FORME CILINDRIKE</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 6 - Ngrohes Çokollate -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <span class="new-badge">NEW</span>
+                                <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/Chauffe-chocolat-sauce-WI1-300x300.jpg" alt="Ngrohes Çokollate 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/Chauffe-chocolat-sauce-double-WI2-300x300.jpg" alt="Ngrohes Çokollate 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">NGROHES COKOLLATE</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TË VEÇANTA PRODUCTS (Hidden by default) -->
+            <div id="te-vecanta" class="product-content" style="display: none;">
+                <div class="row g-4">
+                    <!-- Promo Banner -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="promo-banner" style="background-image: url('https://shpiragu.al/wp-content/uploads/2024/08/vitrina-me-color-540x691.jpg');">
+                            <h2>VITRINA PËR AKULLORE DHE ËMBËLSIRA</h2>
+                            <p>Transformoni biznesin tuaj me vitrinën për akullore dhe ëmbëlsira nga marka IFI</p>
+                            <button class="btn-contact">NA KONTAKTONI</button>
+                        </div>
+                    </div>
+                    <!-- Product 1: Tharese Sallate Manuale -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <div class="out-of-stock-badge">OUT<br>OF STOCK</div>
+                                   <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/39-3-300x300.jpg" alt="Tharese 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/DYNAMIC-tharese-sallate-300x300.jpg" alt="Tharese 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">THARESE SALLATE MANUALE</h3>
+                                <button class="btn-read-more">PËRZGJIDHNI MUNDËSI</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2: Preres Spiral -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <div class="out-of-stock-badge">OUT<br>OF STOCK</div>
+                                    <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/26-5-300x300.jpg" alt="Preres 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/76-300x300.jpg" alt="Preres 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">PRERES SPIRAL</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3: Mulli Arre Moskat -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                   <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/4-4-300x300.jpg" alt="Mulli 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/60-300x300.jpg" alt="Mulli 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">MULLI ARRE MOSKAT</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Secondary Banner -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="secondary-banner">
+                            <img src="https://shpiragu.al/wp-content/uploads/2024/08/454203686_1152071602492688_8797264381312724286_n.jpg" alt="Banner">
+                        </div>
+                    </div>
+                    <!-- Product 4: Thike Dekoruese Karrote -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                    <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/15-4-300x300.jpg" alt="Thike 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/32-12-300x300.jpg" alt="Thike 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">THIKE DEKORUESE KARROTE</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Product 5: Tharese Sallate -->
+                     <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <div class="out-of-stock-badge">OUT<br>OF STOCK</div>
+                                    <div class="product-images-container">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2019/04/4-5-300x300.jpg" alt="Tharese 1" class="product-image active">
+                                    <img src="https://shpiragu.al/wp-content/uploads/2021/02/CSG-400-300x300.jpg" alt="Tharese 2" class="product-image">
+                                </div>
+                                <div class="slider-arrows">
+                                    <button class="arrow-btn prev-arrow" onclick="changeImage(event, this, 'prev')"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="arrow-btn next-arrow" onclick="changeImage(event, this, 'next')"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="image-dots">
+                                    <span class="dot active" onclick="goToImage(event, this, 0)"></span>
+                                    <span class="dot" onclick="goToImage(event, this, 1)"></span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">THARESE SALLATE</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 6: Thike Gjysem Hene -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="https://shpiragu.al/wp-content/uploads/2019/07/4-22-300x300.jpg" alt="THIKE GJYSEM HENE SKIN PROFESSIONAL" class="product-image active">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">THIKE GJYSEM HENE SKIN PROFESSIONAL</h3>
+                                <button class="btn-read-more">LEXONI MË TEPËR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- FUNDI I SEKSIONIT TË PRODUKTEVE -->
+    <!-- =================================================================== -->
+
+  <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div style="max-width: 1000px; margin: 0 auto;">
+  <div class="elfsight-app-d89ad1e4-c971-49c3-8e88-4e676b026b47" data-elfsight-app-lazy></div>
+</div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Event listeners për kategoritë
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.category-title').textContent;
+                console.log('Kategoria e klikuar:', title);
+                // Këtu mund të shtoni logjikën për navigim ose filtrimin e produkteve
+            });
+        });
+    </script>
+</main>
+</body>
+<footer class="site-footer">
+    © 2024 Shpiragu Group. Të gjitha të drejtat e rezervuara.
+</footer>
+</html>

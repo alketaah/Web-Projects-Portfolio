@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rreth Nesh - Shpiragu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    </head>
+        <style>
+       .faq-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.048)), 
+                        url('https://shpiragu.al/wp-content/uploads/2018/09/cover-shpiragu-2.png') center/cover; /* Imazhi i ri */
+            padding: 220px 0 80px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            margin-bottom: 60px;
+        }
+
+        .faq-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+        }
+
+        .breadcrumb-custom {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .breadcrumb-custom a {
+            color: rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: #000000;
+        }
+
+        .breadcrumb-custom .active {
+            color: #e31e24;
+        }
+
+        .breadcrumb-custom-item + .breadcrumb-custom-item::before {
+            content: "/";
+            padding: 0 10px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+         /* FAQ Page Specific Styles */
+        .sidebar-categories {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            background: transparent;
+            padding: 0 0 20px 0;
+            margin-left: 140px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+            border-bottom: none;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-main {
+            border-bottom: none;
+            margin-bottom: 20px;
+        }
+
+        .category-main:last-child {
+            border-bottom: none;
+        }
+
+        .category-main-title {
+            display: block;
+            padding: 0 0 10px 0;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-left: 140px;
+            position: relative;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .category-main-title:hover {
+            background: transparent;
+            color: #e31e24;
+        }
+
+        .category-main-title::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0.7rem;
+            color: #999;
+        }
+
+        .subcategory-list {
+            list-style: none;
+            padding: 0;
+            margin-left: 150px;
+            background: transparent;
+        }
+
+        .subcategory-item {
+            border-top: none;
+        }
+
+        .subcategory-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .subcategory-link:hover {
+            color: #e31e24;
+            padding-left: 5px;
+        }
+
+        .subcategory-link i {
+            margin-right: 8px;
+            font-size: 0.7rem;
+        }
+        
+        
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* FIKSUAR NË 3 KOLONA */
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 280px; 
+}
+
+
+/* Për të zmadhu vetëm imazhin, jo të gjithë cardin */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 280px; 
+}
+
+
+
+
+.card:hover img {
+    transform: scale(1.1); /* Zmadhon vetëm foton 10% */
+}
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(189, 138, 71);
+    padding: 15px 15px; /* Rrit padding-un */
+    transform: translateY(0);
+    transition: all 0.3s;
+}
+
+.card-title {
+    color: white;
+    font-size: 17px; /* Rrit font size */
+    font-weight: 500; /* Më bold */
+    letter-spacing: 1px; /* Më shumë hapësirë mes shkronjave */
+    text-align: center;
+    margin: 0;
+}
+
+/* Responsive - nën 992px bëhu 2 kolona, nën 768px bëhu 1 kolonë */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    body {
+        padding: 10px;
+    }
+}
+
+
+
+/* Siguro që body të zërë të gjithë lartësinë */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-section {
+    flex: 1;
+}
+
+          /* Stili i footer-it */
+            .site-footer {
+               background-color: #282828; /* Ngjyra e zeze e thelle */
+               color: #ffffff; /* Teksti i bardhe */
+               padding: 50px 0;
+               text-align: center;
+            
+               font-family: Arial, sans-serif;
+               font-size: 14px;
+               margin-top: auto;
+                margin-left: -800px; 
+               width: 150%;
+           }
+        </style>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="questions.html" class="active">PYETJE TË SHPESHTA</a>
+                    <span class="text-white-50">|</span>
+                    <a href="contact.html">NA KONTAKTONI</a>
+                </div>
+                <!-- Seksioni i Sign In me nënmeny login -->
+      <div class="login-dropdown">
+        <a href="#" class="signin-link">SIGN IN</a>
+
+        <div class="login-box">
+          <h3>LOGIN FORM</h3>
+          <hr>
+          <form>
+            <label>Username or email *</label>
+            <input type="text" >
+
+            <label>Password *</label>
+            <input type="password" >
+
+            <button type="submit">LOGIN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-lg-3 col-md-12 text-center text-lg-start mb-3 mb-lg-0">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://shpiragu.al/wp-content/uploads/2018/09/shpiragu-logo-new.png" alt="Shpiragu Logo">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="col-lg-6 col-md-12 text-center mb-3 mb-lg-0">
+                    <nav class="main-nav justify-content-center">
+                        <a href="index.html">KREU</a>
+                        <a href="about.html">RRETH NESH</a>
+                        <li class="dropdown">
+      <a href="#">Produkte ▾</a>
+
+      <!-- Nënmenyja që do të shfaqet vetëm me hover -->
+      <div class="mega-menu">
+        <div class="menu-column">
+          <a href="kitchen.html">KUZHINA</a>
+          <a href="#">Furra</a>
+          <a href="#">Kuzhina Modulare</a>
+          <a href="#">Frigo</a>
+          <a href="#">Lavastovilje</a>
+          <a href="#">Mobilje Inox</a>
+          <a href="#">Përpunimi</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+         <a href="confectionery.html">PASTICERIA</a>
+          <a href="#">Furra</a>
+          <a href="#">Ekspozitor</a>
+          <a href="#">Produktor Akulli</a>
+          <a href="#">Makineri Akullore</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+       <a href="table.html">TAVOLINA</a>
+          <a href="#">Porcelan</a>
+          <a href="#">Inox</a>
+          <a href="#">Kristal Qelq</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+         <a href="hygiene.html">HIGJENA</a>
+          <a href="#">Aksesore Pastrimi</a>
+          <a href="#">Detergjente Profesionale</a>
+          <a href="#">Lavanderia</a>
+          <a href="#">Oferta</a>
+        </div>
+      </div>
+    </li>
+
+  
+  </ul>
+                        <a href="contact.html">KONTAKT</a>
+                    </nav>
+                </div>
+
+                <!-- Actions -->
+                <div class="col-lg-3 col-md-12">
+                    <div class="header-actions justify-content-center justify-content-lg-end">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="cart-btn">
+                            <div class="cart-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span class="cart-badge">0</span>
+                            </div>
+                            <span class="cart-text">Cart: € 0.00</span>
+                        </div>
+                    </div>
+                    <div class="currency-icon">€</div>
+                </div>
+            </div>
+        </div>
+    </header>
+<main>
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            
+            <h1>RRETH NESH</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom">
+                    <li class="breadcrumb-custom-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-custom-item active">Rreth nesh</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <style>
+    
+/* 1. ANIMACIONET */
+
+/* Default Diagonal */
+.slider-image-container img.slide {
+    opacity: 0;
+    transform: translate(100%, 100%) scale(0.9);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out; 
+}
+
+.slider-image-container img.active-slide {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Fade Animation */
+.slider-fade .slider-image-container img.slide {
+    transform: none; 
+    opacity: 0; 
+    transition: opacity 1s ease-in-out;
+}
+
+.slider-fade .slider-image-container img.active-slide {
+    opacity: 1;
+    transform: none;
+}
+
+/* Slide Animation */
+.slider-slide .slider-image-container img.slide {
+    opacity: 0;
+    transform: translateX(-100%); 
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.slider-slide .slider-image-container img.active-slide {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+/* 2. HERO SECTION */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    color: rgb(145, 49, 49);
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(216, 210, 210, 0.4);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.breadcrumb a, .return-btn {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.return-btn {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+/* 3. LAYOUT — FOTO MAJTAS, TEKST DJATHTAS */
+.about-content {
+    max-width: 1200px;
+    margin: 50px auto; 
+    padding: 0 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+
+/* Kolona e majtë: një slider i vetëm */
+.image-slider {
+    flex: 1; 
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Slider container */
+.slider-image-container {
+    position: relative;
+    height: 300px; 
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Imazhet brenda slider-it */
+.slider-image-container img.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translate(100%, 100%) scale(0.9);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out; 
+}
+
+.slider-image-container img.active-slide {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Overlay në fund të imazhit */
+.slider-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; 
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent); 
+    z-index: 5; 
+}
+
+/* Kolona e djathtë me tekst */
+.text-info {
+  flex: 2;
+  padding-left: 40px;
+  text-align: justify;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Teksti brenda */
+.text-info p {
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #555;
+    text-align: justify;
+}
+
+
+
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  flex: 1;
+  max-width: 450px;
+}
+
+
+
+/* 4. NAVIGACIONI I SLIDERIT */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* Dots (pikat nën foto) */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    position: relative;
+    z-index: 10;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active-dot {
+    background-color: #0a0909;
+   
+    
+}
+
+.image-caption {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+
+/* 5. RESPONSIVE DESIGN */
+@media (max-width: 850px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .image-slider, .text-info {
+        max-width: 100%;
+    }
+    
+    .hero-section {
+        height: 250px;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+}
+
+
+
+
+
+
+/* Për ekran të vogël (telefon) */
+@media (max-width: 768px) {
+    .image-column {
+        width: 95%;   /* përdor pothuajse gjithë gjerësinë e ekranit */
+        gap: 15px;    /* pak më pak hapësirë ndërmjet slider-ave */
+    }
+
+    .slider-btn {
+        padding: 6px 10px;   /* butona më të vegjël për të prekur më lehtë */
+        font-size: 0.9rem;
+    }
+
+    .image-caption {
+        font-size: 0.85rem;  /* caption pak më e vogël për celular */
+    }
+}
+
+</style>
+
+<div class="about-content">
+        <div class="content-wrapper">
+<div class="image-column">
+      <div class="image-slider">
+          <div class="slider-image-container">
+              <img src="https://shpiragu.al/wp-content/uploads/2020/01/Mareno-1.jpg" alt="Mareno 1" class="slide active-slide">
+              <img src="https://shpiragu.al/wp-content/uploads/2020/01/Mareno-9.jpg" alt="Mareno 9" class="slide">
+              <button class="slider-btn prev-btn">←</button>
+              <button class="slider-btn next-btn">→</button>
+          </div>
+          <div class="slider-dots">
+              <span class="dot active-dot"></span>
+              <span class="dot"></span>
+          </div>
+          <p class="image-caption">Mareno 9</p>
+      </div>
+
+      <div class="image-slider slider-fade">
+          <div class="slider-image-container">
+              <img src="https://shpiragu.al/wp-content/uploads/2020/02/isla.jpg" alt="Isla" class="slide active-slide">
+              <img src="https://shpiragu.al/wp-content/uploads/2019/03/Salvinelli-Time.jpg" alt="Salvinelli-Time" class="slide">
+              <button class="slider-btn prev-btn">←</button>
+              <button class="slider-btn next-btn">→</button>
+          </div>
+          <div class="slider-dots">
+              <span class="dot active-dot"></span>
+              <span class="dot"></span>
+          </div>
+          <p class="image-caption">Projekti A</p>
+      </div>
+
+      <div class="image-slider slider-slide">
+          <div class="slider-image-container">
+              <img src="https://shpiragu.al/wp-content/uploads/2020/09/sutter_zyra-1024x768.jpg" alt="sutter_zyra" class="slide active-slide">
+              <img src="https://shpiragu.al/wp-content/uploads/2020/01/Nenkategori-1.png" alt="Nenkategori-1" class="slide">
+              <button class="slider-btn prev-btn">←</button>
+              <button class="slider-btn next-btn">→</button>
+          </div>
+          <div class="slider-dots">
+              <span class="dot active-dot"></span>
+              <span class="dot"></span>
+          </div>
+          <p class="image-caption">Projekti C</p>
+      </div>
+    </div>
+
+    <!-- Kolona e djathtë me tekstin -->
+    <div class="text-info">
+                <p>
+                    <strong style="color: #767676">SHPIRAGU </strong>është një furnizues profesional për pajisje profesionale hotelierie, restorantesh dhe lavanderie, me vendodhje në Tiranë, Shqipëri i cili është zgjeruar në një biznes komandues në industrinë e furnizimit.
+                </p>
+                <br>
+                <p>
+                  <strong style="color: #767676">SHPIRAGU </strong>u themelua në vitin 1998 si një biznes që importon dhe shpërndan produkte Europiane në tregun shqiptar.
+                <p>
+                   <strong style="color: #767676"> Ne</strong> shpërndajmë një gamë të gjerë të pajisjeve profesionale duke përfshirë pajisjet dhe enët e kuzhinës, pajisjet e furrave, pajisjet e përpunimit të ushqimit, pajisjet ftohëse, pajisjet e tavolinës, baret dhe pajisjet e kafesë. Pajisje profesionale për lavanderi, detergjentë profesionalë dhe dezinfektues, pajisje profesionale për pastrim; etj.
+                </p>
+                <p>
+                    <strong style="color: #767676">Filozofia</strong> e Shpiragut mund të përmblidhet në tre fjalë: dinamizmi, shërbimi dhe cilësia. Kompania i kushton shumë vëmendje trendeve të tregut pa humbur kurrë nga vëmendja ekuilibrin e duhur midis cilësisë dhe çmimit të artikujve të propozuar.
+                </p>
+                <p>
+                   <strong style="color: #767676"> Qëllimi i kompanisë</strong> është t’u japë klientëve marka ekskluzive që dallohen për cilësi në dizajn dhe të azhurnuara në mënyrë që të jenë gjithmonë në hap me kohën, shijet dhe nevojat e konsumatorëve përfundimtar.
+                </p>
+                <p>
+                    Për të kënaqur klientin me shërbimin e ofrimit të shpejtë ka një depo tregtare 1300 metra katrorë dhe një sallë ekspozite të madhe, dhe sisteme të përparuara për ngarkimin, kontrollin e cilësisë dhe ruajtjen e produkteve të vendosura në zonën industriale të Tiranës. Një sistem efikas për të trajtuar artikuj na bën ne një udhëheqës të ndërmarrjes në sektor për sa i përket organizimit dhe uljes së kohës së dorëzimit. Kompania për të dhënë me sukses një shërbim të shpejtë dhe optimal është e pajisur me një sistem menaxhimi inovativ për kontabilitetin, blerjen, shitjet dhe menaxhimin e pajtueshëm me realizimin e inteligjencës së përshtatshme të biznesit, gjithashtu me ekipin tonë të shërbimit i cili siguron që klientët të mbeten të kënaqur shumë kohë pas blerjes makineritë.
+                </p>
+                <p>
+                    <strong style="color: #767676">Përvoja e kompanisë </strong>na lejon të jemi lider në tregun shqiptar. Në rajon kemi implementuar projekte të suksesshme në Kosovë dhe Maqedoni dhe po përpiqemi të rrisim vëllimin. Ne ofrojmë një koleksion superior të mallrave dhe shërbimeve të dizajnuara për të ndihmuar operatorët e biznesit të zgjidhin problemet dhe të largojnë kostot nga zinxhiri i furnizimit. Me gamën tonë të plotë të produkteve ne u ofrojmë klientëve pajisje cilësore nga marka të njohura.
+                </p>
+                <p>
+                  <strong style="color: #767676">  Ne bashkëpunojmë</strong> nga marka të ndryshme të njohura nga Evropa dhe SHBA, duke u ofruar klientëve marka si Alliance International- IPSO; Mareno – Ali Group SpA; MEIKO Austria GmbH; Robot Coupe; Afinox; Unox SpA; Sirman SpA, IFI SpA; Fimar SpA, Forcar Srl, Esmach SpA, Brema Group SpA, Cambro, etj për tregun profesional.
+                </p>
+            </div>
+  </div>
+</main>
+
+
+
+   
+       <script>
+    // 1. FUNKSIONI KRYESOR PËR TË INICIALIZUAR ÇDO SLIDER TË VEÇANTË
+    function initializeSlider(sliderElement) {
+        // Gjen elementet vetëm brenda këtij Slider-i specifik
+        const slides = sliderElement.querySelectorAll('.slide');
+        const dots = sliderElement.querySelectorAll('.dot');
+        const prevBtn = sliderElement.querySelector('.prev-btn');
+        const nextBtn = sliderElement.querySelector('.next-btn');
+        const captionElement = sliderElement.querySelector('.image-caption');
+        
+        // Nëse nuk ka butona, ndalojmë (rast i rrallë)
+        if (!prevBtn || !nextBtn) return;
+        
+        let currentSlide = 0;
+        let slideInterval; 
+
+        // 2. FUNKSIONI SHOWSLIDE: Shfaq imazhin dhe përditëson pikat/titullin
+        function showSlide(index) {
+            // Rreshtimi i indeksit (kthimi në fillim pas fundit)
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Fik të gjitha imazhet dhe pikat aktive
+            slides.forEach(slide => slide.classList.remove('active-slide'));
+            dots.forEach(dot => dot.classList.remove('active-dot'));
+
+            // Aktivizo imazhin dhe pikën aktuale
+            slides[currentSlide].classList.add('active-slide');
+            dots[currentSlide].classList.add('active-dot');
+            
+            // Përditëso Mareno 9, 10, etj. (nga atributi alt)
+            if (captionElement) {
+                 captionElement.textContent = slides[currentSlide].alt;
+            }
+        }
+
+        // 3. FUNKSIONI AUTOPLAY: Fillimi/Restartimi i lëvizjes automatike
+        function startAutoplay() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000); // Ndërron çdo 5 sekonda (mund ta ndryshosh)
+        }
+
+        // 4. NGJARJET E KLIKIMIT (Butonat dhe Pikat)
+        
+        // Prev/Next
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+            startAutoplay(); // Restart Autoplay pas klikimit manual
+        });
+
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+            startAutoplay(); // Restart Autoplay pas klikimit manual
+        });
+
+        // Dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                startAutoplay(); // Restart Autoplay pas klikimit manual
+            });
+        });
+
+        // Fillimi: Shfaq imazhin e parë dhe ndez Autoplay-n
+        showSlide(currentSlide);
+        startAutoplay(); 
+    }
+
+    // 5. INICIALIZIMI I TË GJITHË SLIDER-AVE NË FAQE
+    // Gjen çdo div me klasën 'image-slider' dhe aplikon funksionalitetin tek secili.
+    document.querySelectorAll('.image-slider').forEach(slider => {
+        initializeSlider(slider);
+    });
+</script>
+    
+    </body>
+    <footer class="site-footer">
+    © 2024 Shpiragu Group. Të gjitha të drejtat e rezervuara.
+</footer>
+</html>

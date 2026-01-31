@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyetje të Shpeshta - Shpiragu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* FAQ Page Specific Styles */
+        .sidebar-categories {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            background: transparent;
+            padding: 0 0 20px 0;
+            margin-left: 140px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+            border-bottom: none;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-main {
+            border-bottom: none;
+            margin-bottom: 20px;
+        }
+
+        .category-main:last-child {
+            border-bottom: none;
+        }
+
+        .category-main-title {
+            display: block;
+            padding: 0 0 10px 0;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-left: 140px;
+            position: relative;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .category-main-title:hover {
+            background: transparent;
+            color: #e31e24;
+        }
+
+        .category-main-title::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0.7rem;
+            color: #999;
+        }
+
+        .subcategory-list {
+            list-style: none;
+            padding: 0;
+            margin-left: 150px;
+            background: transparent;
+        }
+
+        .subcategory-item {
+            border-top: none;
+        }
+
+        .subcategory-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .subcategory-link:hover {
+            color: #e31e24;
+            padding-left: 5px;
+        }
+
+        .subcategory-link i {
+            margin-right: 8px;
+            font-size: 0.7rem;
+        }
+
+       .faq-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.048)), 
+                        url('https://shpiragu.al/wp-content/uploads/2018/09/cover-shpiragu-2.png') center/cover; /* Imazhi i ri */
+            padding: 220px 0 80px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            margin-bottom: 60px;
+        }
+
+        .faq-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+        }
+
+        .breadcrumb-custom {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .breadcrumb-custom a {
+            color: rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: #000000;
+        }
+
+        .breadcrumb-custom .active {
+            color: #e31e24;
+        }
+
+        .breadcrumb-custom-item + .breadcrumb-custom-item::before {
+            content: "/";
+            padding: 0 10px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .faq-section {
+            padding: 10px 0;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 15px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            background: #e31e24;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+             border: 1px solid rgba(128, 128, 128, 0.055);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .faq-answer-content {
+            padding: 0 30px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 25px 0;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .faq-category {
+            margin-top: 60px;
+        }
+
+        .faq-category-title {
+            font-size: 1.5rem;
+            color: #e31e24;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e31e24;
+            font-weight: 700;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #e31e24 0%, #c41820 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 10px;
+        }
+
+        .contact-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .contact-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .btn-contact-white {
+            background: white;
+            color: #e31e24;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-contact-white:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: #e31e24;
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 20px;
+            }
+
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 20px;
+            }
+        }
+        body {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh; /* Kjo siguron qe body te marre gjithe lartesine e ekranit */
+          margin: 0;
+}
+        main {
+         flex-grow: 1; /* Kjo e shtyn permbajtjen kryesore te zgjerohet dhe footerin ne fund */
+}
+
+           /* Stili i footer-it */
+            .site-footer {
+               background-color: #282828; /* Ngjyra e zeze e thelle */
+               color: #ffffff; /* Teksti i bardhe */
+               padding: 50px 0;
+               text-align: center;
+               font-family: Arial, sans-serif;
+               font-size: 14px;
+               margin-left: -700px;
+               margin-top: auto; /* Kjo e shtyn footerin ne fund */
+           }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="index.html" class="active">PYETJE TË SHPESHTA</a>
+                    <span class="text-white-50">|</span>
+                    <a href="contact.html">NA KONTAKTONI</a>
+                </div>
+                <!-- Seksioni i Sign In me nënmeny login -->
+      <div class="login-dropdown">
+        <a href="#" class="signin-link">SIGN IN</a>
+
+        <div class="login-box">
+          <h3>LOGIN FORM</h3>
+          <hr>
+          <form>
+            <label>Username or email *</label>
+            <input type="text" >
+
+            <label>Password *</label>
+            <input type="password" >
+
+            <button type="submit">LOGIN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-lg-3 col-md-12 text-center text-lg-start mb-3 mb-lg-0">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://shpiragu.al/wp-content/uploads/2018/09/shpiragu-logo-new.png" alt="Shpiragu Logo">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="col-lg-6 col-md-12 text-center mb-3 mb-lg-0">
+                    <nav class="main-nav justify-content-center">
+                        <a href="index.html">KREU</a>
+                        <a href="about.html">RRETH NESH</a>
+                        <li class="dropdown">
+      <a href="#">Produkte ▾</a>
+
+      <!-- Nënmenyja që do të shfaqet vetëm me hover -->
+      <div class="mega-menu">
+        <div class="menu-column">
+          <a href="kitchen.html">KUZHINA</a>
+          <a href="#">Furra</a>
+          <a href="#">Kuzhina Modulare</a>
+          <a href="#">Frigo</a>
+          <a href="#">Lavastovilje</a>
+          <a href="#">Mobilje Inox</a>
+          <a href="#">Përpunimi</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+         <a href="confectionery.html">PASTICERIA</a>
+          <a href="#">Furra</a>
+          <a href="#">Ekspozitor</a>
+          <a href="#">Produktor Akulli</a>
+          <a href="#">Makineri Akullore</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+          <a href="table.html">TAVOLINA</a>
+          <a href="#">Porcelan</a>
+          <a href="#">Inox</a>
+          <a href="#">Kristal Qelq</a>
+          <a href="#">Aksesore</a>
+          <a href="#">Oferta</a>
+        </div>
+
+        <div class="menu-column">
+          <a href="hygiene.html">HIGJENA</a>
+          <a href="#">Aksesore Pastrimi</a>
+          <a href="#">Detergjente Profesionale</a>
+          <a href="#">Lavanderia</a>
+          <a href="#">Oferta</a>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="#">Kontakt</a></li>
+  </ul>
+                        <a href="contact.html">KONTAKT</a>
+                    </nav>
+                </div>
+
+                <!-- Actions -->
+                <div class="col-lg-3 col-md-12">
+                    <div class="header-actions justify-content-center justify-content-lg-end">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="cart-btn">
+                            <div class="cart-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span class="cart-badge">0</span>
+                            </div>
+                            <span class="cart-text">Cart: € 0.00</span>
+                        </div>
+                    </div>
+                    <div class="currency-icon">€</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            
+            <h1>PYETJE TË SHPESHTA</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom">
+                    <li class="breadcrumb-custom-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-custom-item active">Pyetje të shpeshta</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+<main>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar with Categories -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="sidebar-categories">
+                        <h3 class="sidebar-title">KATEGORITË E PRODUKTEVE</h3>
+                        <ul class="category-list">
+                            <!-- Kuzhina -->
+                            <li class="category-main">
+                                <div class="category-main-title">
+                                    KUZHINA
+                                </div>
+                                <ul class="subcategory-list">
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> FURRA
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> KUZHINA MODULARE
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> FRIGO
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> LAVASTOVILIE
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> MOBILIE INOX
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> PERPUNIMI
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> AKSESORE
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> OFERTA
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Pastiçeria -->
+                            <li class="category-main">
+                                <div class="category-main-title">
+                                    PASTIÇERIA
+                                </div>
+                                <ul class="subcategory-list">
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> FURRA
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> EKSPOZITOR
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> PRODUKTOR AKULLI
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> MAKINERI AKULLORE
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> AKSESORE
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> OFERTA
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Tavolina -->
+                            <li class="category-main">
+                                <div class="category-main-title">
+                                    TAVOLINA
+                                </div>
+                                <ul class="subcategory-list">
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> PORCELAN
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> INOX
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> KRISTAL QELO
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> AKSESORE
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> OFERTA
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Higjiena -->
+                            <li class="category-main">
+                                <div class="category-main-title">
+                                    HIGJIENA
+                                </div>
+                                <ul class="subcategory-list">
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> AKSESORË PASTRIMI
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> DETERGJENTE PROFESIONALE
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> LAVANDERIA
+                                        </a>
+                                    </li>
+                                    <li class="subcategory-item">
+                                        <a href="#" class="subcategory-link">
+                                            <i class="fas fa-chevron-right"></i> OFERTA
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ Content -->
+                <div class="col-lg-8 col-md-12">
+            <div class="faq-container">
+                <!-- FAQ Items -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>SI PAGUHET PËR BLERJET ONLINE?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Per blerjet online ne www.shpiragu.al mund te paguani nepermjet tranferstes bankare ne nje nga llogarite tona si ne euro ashtu edhe ne leke. Gjithashtu mund te paguani porosine tuaj kesh kur te merrni ne dorezim mallin.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>SA KUSHTON TRANSPORTI?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Transporti i mallrave eshte i perfshire ne cmim per Tiranen. Ne rast blerje nga vende te tjera cmimi varion ne baze te porosise dhe negociohet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>SA VONON TRANSPORTI?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Koha e transportit varion ne baze te gjendjes se stockut dhe sasise se kerkuar. Me shume informacion rreth kohes se sakte te dorezimit jepet ne momentin e konfirmimit te porosise.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>SA GARANCI KAM QË TË DHËNAT E MIA PERSONALE NUK DO TË SHPËRDOROHEN? (EMRI, MBIEMRI, ADRESA ELEKTRONIKE, FJALËKALIMI).</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Ju do te keni nje log-in password personal vetem per ju, ku do te keni zbritjet tuaja per cdo artikull, kjo ben qe asnje nga te dhenat tuaja te shperdorohen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>KU BËNI DËRGESA TË POROSIVE? A MUND TË BLEJ NGA JASHTË SHQIPËRISË?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Shpiragu mundeson dergesa ne te gjithe Shqiperine dhe jo vetem.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>NËSE DËSHIROJ TË KTHEJ NJË PRODUKT SI DUHET TË VEPROJ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Jo te gjithe produktet mund te kthehen, por nese kane nje defekt ne kemi servisin tone ku mund te drejtoheni si dhe shkembim produkti.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>A MUND TË BLEJ DUKE PAGUAR NË BANKË?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Po, sigurisht që mund. Ju mund të transferoni vlerën e blerjes në llogaritë tona bankare dhe më pas të na dërgoni dëshminë e pagesës në email ose whatsapp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>SI MË GARANTONI QË TË DHËNAT E KARTËS SIME BANKARE NUK DO TË KEQPËRDOREN?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Të gjitha transaksionet me kartë bankare kryhen përmes sistemeve më të sigurta të pagesave online. Ne nuk ruajmë asnjë informacion mbi kartat tuaja bankare.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>A OFRONI SERVIS TË PRODUKTEVE?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Po, ne ofrojmë servis të plotë për të gjitha produktet që shesim. Kemi ekip teknik profesional dhe të certifikuar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>A KA GARANCI PRODUKTI QË BLEJ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Po, të gjitha produktet vijnë me garanci të prodhuesit. Kohëzgjatja e garancisë varet nga produkti dhe specifikohet në faqen e produktit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>OFRONI SHËRBIM MONTIMI PËR PRODUKTET? NËSE PO, SA KUSHTON?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Po, ofrojmë shërbim montimi për shumicën e produkteve. Kostoja e montimit varet nga lloji dhe kompleksiteti i produktit. Kontaktoni për më shumë detaje.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>OFRONI ASISTENCË PROJEKTIMI?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Po, ofrojmë asistencë profesionale për projektimin e kuzhinave komerciale, restoranteve dhe hoteleve. Ekipi ynë është gati t'ju ndihmojë.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Close FAQ when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.faq-item')) {
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
+    </script>
+    </main>
+</body>
+<!-- Footer -->
+<footer class="site-footer">
+    © 2024 Shpiragu Group. Të gjitha të drejtat e rezervuara.
+</footer>
+</html>
