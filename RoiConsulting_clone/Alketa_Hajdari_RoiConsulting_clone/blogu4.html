@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditimi nuk është thjesht një kontroll rutinë – ROI Consulting</title>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 85px; /*adjust sipas lartësisë së navbar-it */
+}
+
+/* Navigation */
+nav {
+    position: fixed;          
+    top: 0;                  
+    left: 0;                
+    width: 100%;              
+    z-index: 1000;            /*  për të qenë mbi elementet e tjerë */
+    background-color: #00183b;
+    padding: 1.3rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* hije e vogël */
+}
+
+
+.logo {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span {
+    background: white;
+    color: #0a1628;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding-bottom: 0.3rem; /* duhet për border-bottom */
+    transition: border-color 0.3s;
+}
+
+/* Vetëm vija poshtë në hover */
+.nav-links a:hover {
+    border-bottom: 2px solid white;
+}
+
+/* Link-u aktiv me vijë të bardhë */
+.nav-links a.active {
+    border-bottom: 2px solid white;
+}
+
+
+.cta-button {
+    background: white;
+    color: #0a1628;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s;
+}
+/* Efekti kur vendos kursorin mbi të */
+.cta-button:hover {
+    background: #00183b;  /* blu e mbyllt */
+    color: white;         /* shkronja të bardha */
+}
+
+
+
+/* Footer Background Color (Black/Dark Navy) */
+ .footer-container {
+ background-color : #0a183d ;
+ color : #ffffff ;
+ padding-top : 50px ;
+ padding-bottom : 20px ;
+ }
+
+ /* Styling the Main Container (Using Flexbox) */
+ .footer-content {
+ display : flex ;
+ justify-content : space-between ;
+ max-width : 1200px ; /* Maximum content width */
+ margin : 0 auto ;
+ padding : 0 20px ;
+ font-weight : 500 ;
+ font-family : Poppins, sans-serif ;
+ }
+
+ /* Styling Each Section */
+ .footer-section {
+ padding-right : 30px ;
+ /* To adjust the space between links */
+ flex-basis : 25% ;
+ }
+
+
+ .logo-roi {
+ color : #ffffff ; /* ROI in white */
+ }
+ .logo-consulting {
+ font-size : 16px ;
+ font-weight : normal ;
+ color : #d1d1d1 ; /* CONSULTING in light gray */
+ vertical-align : top ;
+ }
+ .roi-holding-logo .logo-consulting {
+ /* HOLDING */
+ color : #000 ; /* This should be dark in the original image, leaving it white in the simulation */
+ color : #ffffff ;
+ }
+
+ /* Contact Text Styling */
+ .contact-info p {
+ font-size : 14px ;
+ margin : 8px 0 ;
+ opacity : 0.8 ; /* To make it a little dimmer than the titles */
+ }
+ .contact-info i {
+ margin-right : 10px ;
+ color : #ffffff ;
+ }
+
+ /* Section Title Styling */
+ .footer-section h3 {
+ font-size : 18px ;
+ font-weight : bold ;
+ margin-bottom : 20px ;
+ }
+
+ /* Link List Styling */
+ .footer-section lower {
+ list-style : none ;
+ padding : 0 ;
+ margin : 0 ;
+ }
+
+ .footer-section lower li {
+ margin-bottom : 15px ;
+ }
+
+ .footer-section ul li a {
+ color : #ffffff ;
+ text-decoration : none ;
+ font-size : 15px ;
+ transition : color 0.3s ;
+ }
+
+
+
+ /* Adjusting the space between Quick Links and More Links */
+ .quick-links {
+ flex-basis : 15% ;
+ }
+ .more-links {
+ flex-basis : 15% ;
+ padding-top : 40px ; /* Adjustment to start below the title */
+ }
+
+ /* Subscribe Section */
+ .subscribe-form {
+ display : flex ;
+ margin-bottom : 20px ;
+ }
+
+ .subscribe-form input [ type = "email" ] {
+ padding : 10px ;
+ border : none ;
+ border-radius : 8px 8px 8px 8px ;
+ width : 200px ;
+ font-family : Poppins, sans-serif ;
+ color : #969494 ; /* Email text in black */
+ font-weight : 700 ;
+ }
+
+ .subscribe-form button {
+ background-color : #010B40 ; /* SUBMIT button color */
+ color : white ;
+ padding : 10px 15px ;
+ border : none ;
+ border-radius : 0 3px 3px 0 ;
+ cursor : pointer ;
+ font-weight : bold ;
+ transition : background-color 0.3s ;
+ }
+
+
+
+ .roi-academy-text {
+ font-size : 14px ;
+ margin : 0 0 10px 0 ;
+ font-weight : bold ;
+ }
+
+ /* ROI Holding logo simulation */
+ .roi-holding-logo {
+ margin-bottom : 25px ;
+ /* This can be empty if no special styling is needed */
+ }
+
+ /* Adjust the size of the Image (Logo) */
+ .roi-holding-logo img {
+ /* Set an appropriate maximum height or width. */
+ max-height : 40px ;
+ width : auto ;
+ display : block ; /* To avoid extra spaces under the image */
+ }
+ /* Social Icons */
+ .social-icons {
+ margin-top : 15px ;
+ }
+
+ .social-icon {
+ display : inline-block ;
+ width : 40px ;
+ height : 40px ;
+ line-height : 40px ;
+ text-align : center ;
+ border-radius : 3px ;
+ margin-right : 10px ;
+ font-size : 18px ;
+ color : white ;
+ transition : opacity 0.3s ;
+ }
+
+ .facebook {
+ background-color : #3b5998 ;
+ }
+
+ .instagram {
+ background-color : #292828 ;
+ }
+
+ .social-icon:hover {
+ opacity : 0.8 ;
+ }
+ .submit-btn {
+    background-color: #172a50;
+    color: #ffffff;
+    padding: 15px 30px;
+    border: 2px solid #ff0000;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.submit-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ff0000;
+}
+
+ /* Last line of Copyright */
+ .footer-bottom {
+ background-color : #17244a ; /* A shade darker than the main background */
+ text-align : center ;
+ padding : 15px 20px ;
+ margin-top : 30px ;
+ font-size : 13px ;
+ border-top : 1px solid #1f2c53 ;
+ }
+
+ .footer-bottom p {
+ margin : 0 ;
+ }
+
+ .footer-bottom b {
+ font-weight : bold ;
+ }
+
+ /* Media Query (Responsive Design) - For smaller screens */
+ @media ( max-width : 992px ) {
+ .footer-content {
+ flex-wrap : wrap ;
+ }
+
+ .footer-section {
+ flex-basis : 50% ; /* To place 2 sections in a row */
+ margin-bottom : 30px ;
+ padding-right : 20px ;
+ }
+ .contact-info {
+ flex-basis : 100% ; /* Contact section takes up the entire width */
+ }
+
+ .more-links {
+ padding-top : 0 ;
+ }
+ }
+
+ @media ( max-width : 576px ) {
+ .footer-section {
+ flex-basis : 100% ; /* All sections below each other */
+ padding-right : 0 ;
+ }
+ .subscribe-form {
+ display : block ;
+ }
+ .subscribe-form input [ type = "email" ],
+ .subscribe-form button {
+ width : 100% ;
+ box-sizing : border-box ;
+ border-radius : 3px ;
+ margin-bottom : 10px ;
+ }
+ }
+</style>
+</head>
+<body>
+    <header>
+    <!-- Navigation -->
+   <nav>
+    <div class="logo">
+        <img src="https://roi-consulting.net/wp-content/uploads/2025/06/00_0-ROI-CONSULTING-27-scaled.png" 
+             alt="ROI Consulting Logo" 
+             style="height: 60px;">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+       <li><a href="#sherbimet">Shërbimet</a></li>
+    <li><a href="#klientet">Klientët</a></li>
+    <li><a href="#rreth-nesh">Rreth nesh</a></li>
+    <li><a href="#ekipi">Ekipi ynë</a></li>
+    <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#" class="cta-button">Cakto konsultë falas</a>
+</nav>
+</header>
+
+
+<section style="max-width: 1150px; margin: 30px auto; padding: 0 20px; font-family: Arial, sans-serif;">
+    
+    <h2 style="font-size: 2.5em; font-weight: 700; color: #172a50; line-height: 1.2; margin-bottom: 25px;">
+        Auditimi nuk është thjesht një kontroll rutinë
+    </h2>
+    
+    <p style="font-size: 1.1em; line-height: 1.6; margin-bottom: 25px; color: #1a1a1a;">
+        Auditimi nuk është thjesht një kontroll rutinë, është një proces objektiv që siguron transparencë, besueshmëri dhe përputhshmëri me ligjet dhe standardet.
+    </p>
+    
+    <ul style="list-style-type: none; padding-left: 0; margin-top: 30px; margin-bottom: 30px;">
+        
+        <li style="font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; color: #1a1a1a; font-weight: 600;">
+            <span style="margin-right: 10px;">📌</span> Për t’u përgatitur siç duhet, sigurohuni që keni të rregulluara këto dokumente:
+        </li>
+        
+        <li style="font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; color: #1a1a1a; font-weight: 500;">
+            <span style="margin-right: 10px;">📃</span> Pasqyrat financiare të plota dhe të përditësuara;
+        </li>
+        
+        <li style="font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; color: #1a1a1a; font-weight: 500;">
+            <span style="margin-right: 10px;">📁</span> Regjistrat kontabël;
+        </li>
+        
+        <li style="font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; color: #1a1a1a; font-weight: 500;">
+            <span style="margin-right: 10px;">💼</span> Dokumentacioni i kontratave, huave dhe marrëveshjeve të rëndësishme;
+        </li>
+        
+        <li style="font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; color: #1a1a1a; font-weight: 500;">
+            <span style="margin-right: 10px;">🧾</span> Faturat, qarkullimi i stokut dhe llogaritë e pagueshme/arkëtueshme;
+        </li>
+        
+        <li style="font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; color: #1a1a1a; font-weight: 500;">
+            <span style="margin-right: 10px;">🧮 </span> Deklaratat tatimore të periudhës që auditohet.
+        </li>
+        <li style="font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; color: #1a1a1a; font-weight: 500;">
+            <span style="margin-right: 10px;">💼</span>Te ROI Consulting, ne ju ndihmojmë të përgatiteni në mënyrë profesionale për çdo auditim, duke garantuar përputhshmëri dhe siguri financiare.
+
+        </li>
+    </ul>
+    
+</section>
+
+
+<section style="max-width: 1150px; margin: 40px auto; padding: 0 20px; font-family: Arial, sans-serif;">
+    
+    <h3 style="font-size: 2em; font-weight: 700; color: #172a50; margin-bottom: 10px;">
+        Leave a Reply
+    </h3>
+    
+    <p style="font-size: 0.9em; color: #4a4a4a; margin-bottom: 30px;">
+        Your email address will not be published. Required fields are marked <span style="color: #172a50; font-weight: bold;">*</span>
+    </p>
+    
+    <form action="#" method="post">
+        
+        <div style="margin-bottom: 25px; width: 100%;">
+            <label for="comment" style="display: block; font-size: 1em; font-weight: 600; color: #4a4a4a; margin-bottom: 5px;">
+                Comment <span style="color: #172a50; font-weight: bold;">*</span>
+            </label>
+            <textarea id="comment" name="comment" rows="8" required 
+                style="width: 100%; padding: 12px; border: 1px solid #c4c4c4; border-radius: 4px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif;">
+            </textarea>
+        </div>
+        
+        <div style="margin-bottom: 25px; width: 100%;">
+            <label for="author" style="display: block; font-size: 1em; font-weight: 600; color: #4a4a4a; margin-bottom: 5px;">
+                Name <span style="color: #172a50; font-weight: bold;">*</span>
+            </label>
+            <input type="text" id="author" name="author" required 
+                style="width: 100%; padding: 12px; border: 1px solid #c4c4c4; border-radius: 4px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif;">
+        </div>
+        
+        <div style="margin-bottom: 25px; width: 100%;">
+            <label for="email" style="display: block; font-size: 1em; font-weight: 600; color: #4a4a4a; margin-bottom: 5px;">
+                Email <span style="color: #172a50; font-weight: bold;">*</span>
+            </label>
+            <input type="email" id="email" name="email" required 
+                style="width: 100%; padding: 12px; border: 1px solid #c4c4c4; border-radius: 4px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif;">
+        </div>
+        
+        <div style="margin-bottom: 25px; width: 100%;">
+            <label for="website" style="display: block; font-size: 1em; font-weight: 600; color: #4a4a4a; margin-bottom: 5px;">
+                Website
+            </label>
+            <input type="url" id="website" name="website" 
+                style="width: 100%; padding: 12px; border: 1px solid #c4c4c4; border-radius: 4px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif;">
+        </div>
+        
+        <div style="margin-bottom: 25px; display: flex; align-items: center;">
+            <input type="checkbox" id="cookies" name="cookies" 
+                style="margin-right: 10px; height: 16px; width: 16px;">
+            <label for="cookies" style="font-size: 1em; color: #1a1a1a; font-weight: normal; cursor: pointer;">
+                Save my name, email, and website in this browser for the next time I comment.
+            </label>
+        </div>
+        
+                      <input type="submit" value="Post Comment" class="submit-btn">
+
+    </form>
+</section>
+
+
+
+
+
+
+
+    <footer class="footer-container">
+        <div class="footer-content">
+
+            <div class="footer-section contact-info">
+                <div class="roi-holding-logo">
+                    <img src="https://roi-consulting.net/wp-content/uploads/2025/06/00_0-ROI-HOLDING-24-1024x423.png" alt="Roi Logo">
+                </div>
+                
+                <p><i class="fas fa-phone"></i> +383 49 444 542</p>
+                <p><i class="fas fa-envelope"></i> info@roi-consulting.net</p>
+                
+                <p><i class="fas fa-map-marker-alt"></i> Icon Tower, Prishtinë 10000</p>
+                <p><i class="fas fa-map-marker-alt"></i> Zogu I Blvd, Tiranë 1001, Albania</p>
+                <p><i class="fas fa-map-marker-alt"></i> Str Macedonia, Skopje 1000, N. Macedonia</p>
+            </div>
+
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">-Ballina</a></li>
+                    <li><a href="#">-Shërbimet</a></li>
+                    <li><a href="#">-Klientët</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section more-links">
+                <ul>
+                    <li><a href="#">-Rreth nesh</a></li>
+                    <li><a href="#">-Ekipi ynë</a></li>
+                    <li><a href="#">-Kontakti</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section subscribe-section">
+                <h3>Subscribe</h3>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Email">
+                    <button type="submit">SUBMIT</button>
+                </div>
+
+                <p class="roi-academy-text">ROI Academy is part of:</p>
+                <div class="roi-holding-logo">
+                   
+                    <img src="  https://roi-consulting.net/wp-content/uploads/2025/06/00_0-ROI-HOLDING-24-1024x423.png" alt="Roi Logo">
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/people/ROI-Consulting/100077774160773/" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/roiconsulting.ks/" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; Copyrights <strong>ROI Hunting</strong>. All rights reserved. – Developed by <strong>Sharp Group</strong>  </p>
+        </div>
+    </footer>
+</body>
+</html>

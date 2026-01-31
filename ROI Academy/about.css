@@ -1,0 +1,864 @@
+/* Stilizimi bazë dhe reset */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Sfondi i lehtë nën statistika */
+    color: #333;
+}
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.navbar-logo img {
+  height: 45px;
+  width: auto;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  flex: 1;
+  justify-content: center;
+  margin: 0 50px;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #4a5568;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  padding: 28px 0; /* SHTUAR - për të krijuar hapësirë për vijën */
+  position: relative; /* SHTUAR */
+}
+
+/* SHTUAR - Vija blu në hover */
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #0f3675;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navbar-link:hover::after,
+.navbar-item:hover .navbar-link::after {
+  transform: scaleX(1);
+}
+
+.navbar-link:hover {
+  color: #06214d; 
+}
+
+.dropdown-icon {
+  transition: transform 0.3s ease; 
+}
+
+.dropdown:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/*  Dropdown Menu Styles */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  padding: 8px 0;
+  margin-top: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 20px;
+  color: #4a5568;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+
+
+.dropdown-content a:hover {
+  background: #00183d; 
+  color: #ffffff; 
+  padding-left: 23px;
+}
+
+.dropdown-content a:hover::before {
+  transform: scaleY(1);
+}
+.apply-button {
+    display: inline-block;
+    text-decoration: none;
+  background-color: #1a1f36;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.apply-button:hover {
+background-color: #ffffff;
+color: #1a1f36;
+border: 2px solid #1a1f36;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar-menu {
+    gap: 20px;
+    margin: 0 30px;
+  }
+  
+  .navbar-link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  
+  .navbar-menu {
+    display: none;
+  }
+  
+  .navbar-container {
+    justify-content: space-between;
+  }
+} 
+
+/* Përdoret për të kufizuar gjerësinë e përmbajtjes në qendër */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Stilizimi i seksionit kryesor me headerin */
+.roi-academy-stats {
+    width: 100%;
+}
+
+/* Stilizimi i sfondit të errët (Header) */
+.stats-header {
+    background-color: #1a202c; /* Ngjyra e errët */
+    color: white;
+    padding: 60px 0; /* Shtojmë hapësirë sipër dhe poshtë */
+}
+
+.stats-header h2 {
+    font-size: 2.5rem; /* Madhësia e titullit 'Rreth ROI Academy' */
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Stilizimi i seksionit të statistikave */
+.stats-content {
+    background-color: white; /* Sfondi i bardhë për statistikat */
+    padding: 40px 0 60px 0; /* Shtojmë hapësirë */
+    /* Për t'u siguruar që është ngjitur me headerin */
+    margin-top: 0; 
+}
+
+/* Rregullimi i rrjetës (Grid) për statistikat */
+.stats-grid {
+    display: flex;
+    justify-content: space-around; /* Shpërndan elementet në mënyrë të barabartë */
+    text-align: center;
+    gap: 20px;
+}
+
+/* Stilizimi i secilës kartë statistike */
+.stat-item {
+    flex-basis: 18%; /* I jep një bazë të gjerë të ngjashme për çdo artikull */
+    padding: 10px 0;
+}
+
+.stat-number {
+    font-size: 2.5rem; /* Madhësia e numrit (+6000, 95%, etj.) */
+    font-weight: 700; /* Bëjmë numrat të trashë */
+    color: #1a202c; /* Ngjyra e numrave */
+    margin-bottom: 5px;
+}
+
+.stat-description {
+    font-size: 1rem; /* Madhësia e përshkrimit */
+    color: #4a5568; /* Ngjyra pak më e zbehtë e përshkrimit */
+    font-weight: 600; /* Përshkrimi duket pak i trashë */
+}
+
+/* Stilizimi për pajisjet më të vogla (Responsive Design) */
+@media (max-width: 768px) {
+    .stats-header {
+        padding: 40px 0;
+    }
+    .stats-grid {
+        flex-wrap: wrap; /* Lejon që kartat të kalojnë në rresht të ri */
+        justify-content: space-between;
+    }
+    .stat-item {
+        flex-basis: 45%; /* Për t'i vendosur dy karta në një rresht në pajisje të vogla */
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+/* --- Stilizimi i Seksionit Rreth Nesh --- */
+
+.about-us-section {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #1a202c; /* Ngjyra e titullit 'Rreth nesh' */
+}
+
+/* Rregullimi i dy kolonave të tekstit */
+.about-us-content {
+    display: flex;
+    gap: 40px; /* Hapësira mes dy kolonave */
+    margin-bottom: 40px;
+}
+
+.about-us-text-column {
+    flex: 1; /* Secila kolonë zë hapësirë të barabartë */
+}
+
+.about-us-text-column p {
+    font-size: 1rem;
+    line-height: 1.8; /* Hapësirë e mirë mes rreshtave */
+    color: #4a5568; /* Ngjyra e tekstit të trupit */
+    margin: 0;
+}
+
+/* Stilizimi i titullit të Formatit të Mësimit */
+.learning-format-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #1a202c;
+}
+
+/* --- Modifikime për Formatin e Mësimit --- */
+
+/* Krijon strukturën me dy kolona: tekstin dhe imazhet */
+.format-content-grid {
+    display: flex;
+    gap: 40px; 
+    margin-bottom: 80px;
+}
+
+/* Kolona e Majtë (Teksti) */
+.format-text-column {
+    flex: 1; /* I jep rreth 50% të gjerësisë */
+}
+
+.format-text-column p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 20px; /* Hapësirë mes paragrafeve */
+}
+
+/* Kolona e Djathtë (Imazhet) */
+.format-image-column {
+    flex: 1; /* I jep rreth 50% të gjerësisë */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Hapësira mes dy imazheve */
+}
+
+/* Stilizimi i kontejnerit të imazhit */
+.image-wrapper {
+    overflow: hidden; /* Siguron që imazhi të mos dalë jashtë kornizës */
+    border-radius: 8px; /* Qoshe pak të rrumbullakosura, si në pamje */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Hije e lehtë për theksim */
+}
+
+.image-wrapper img {
+    width: 100%; /* Imazhi mbush kontejnerin e tij */
+    height: auto;
+    display: block;
+}
+
+
+/* Media Query (Responsive Design) - Përsëri, për ekrane të vogla */
+@media (max-width: 992px) {
+    .format-content-grid {
+        flex-direction: column; /* Kalon në një kolonë të vetme */
+    }
+    .format-image-column {
+        gap: 15px;
+    }
+}
+
+/* Media Query (Responsive Design) për telefona dhe tableta */
+@media (max-width: 992px) {
+    .about-us-content {
+        flex-direction: column; /* Kalon në një kolonë në ekranet e vogla */
+        gap: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+/* --- Stilizimi i Seksionit të Rezultateve --- */
+
+.results-section {
+    padding: 60px 0;
+    background-color: white; /* Sigurohet që sfondi të jetë i bardhë */
+}
+
+/* Rregullimi i kolonave (Imazhi Majtas, Teksti Djathtas) */
+.results-content-grid {
+    display: flex;
+    gap: 40px; 
+}
+
+/* Stilizimi i Kolonës së Tekstit (Djathtas) */
+.results-text-column {
+    flex: 1; /* Zë rreth 50% të gjerësisë */
+    padding-top: 5px; /* Për ta rregulluar vertikalisht me imazhet */
+}
+
+.results-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #1a202c; /* Ngjyra e titullit */
+}
+
+.results-text-column p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+/* Kolona e Imazheve (Majtas) */
+.results-image-column {
+    flex: 1; /* Zë rreth 50% të gjerësisë */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+/* Përdorim stilizimin e mëparshëm të imazhit, por mund ta ridrejtojmë për këtë seksion */
+/* Për imazhet, do të ripërdorim klasat .image-wrapper dhe .image-wrapper img */
+
+
+/* Media Query (Responsive Design) - Për ekrane të vogla e kthejmë në një kolonë */
+@media (max-width: 992px) {
+    .results-content-grid {
+        flex-direction: column; /* Vendos imazhet sipër dhe tekstin poshtë */
+    }
+}
+
+
+
+
+
+
+/* testimonials.css */
+:root{
+  --bg:#f2f4f8;
+  --card-bg:#111827;
+  --muted:#444;
+  --muted-light:#cbd5e1;
+  --text:#111;
+  --card-text:#d1d5db;
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  margin:0;
+  padding:0;
+}
+
+h1{
+  text-align:center;
+  font-size:48px;
+  margin-top:40px;
+  color:var(--text);
+}
+
+.subtitle{
+  text-align:center;
+  max-width:900px;
+  margin:0 auto 40px;
+  font-size:18px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* Slider wrapper */
+.slider-wrapper{
+  position:relative;
+  max-width:1300px;
+  margin:0 auto;
+}
+
+/* Slides */
+.slide{
+  display:none;
+  opacity:0;
+  transition:opacity 1s ease;
+  /* grid layout when active */
+}
+
+.slide.active{
+  display:grid;
+  opacity:1;
+  grid-template-columns:repeat(auto-fit, minmax(450px,1fr));
+  gap:30px;
+  padding:40px;
+}
+
+/* Card */
+.card{
+  background:var(--card-bg);
+  color:#fff;
+  border-radius:20px;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* Profile */
+.profile{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.profile img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* Text styles inside card */
+.name{
+  font-size:22px;
+  font-weight:700;
+}
+
+.course{
+  font-size:16px;
+  color:var(--muted-light);
+}
+
+.text{
+  font-size:18px;
+  line-height:1.6;
+  color:var(--card-text);
+}
+
+/* Pagination Dots */
+.dots{
+  text-align:center;
+  margin:20px 0 50px;
+}
+
+.dot{
+  width:12px;
+  height:12px;
+  display:inline-block;
+  margin:0 6px;
+  background:#aaa;
+  border-radius:50%;
+  cursor:pointer;
+  transition:transform .3s, background .3s;
+}
+
+.dot.active{
+  background:var(--card-bg);
+  transform:scale(1.3);
+}
+
+/* Responsive tweaks */
+@media (max-width:980px){
+  h1{font-size:36px}
+  .slide.active{grid-template-columns:1fr}
+  .card{padding:28px}
+  .profile img{width:72px;height:72px}
+  .text{font-size:16px}
+}
+
+@media (max-width:520px){
+  h1{font-size:28px;margin-top:20px}
+  .subtitle{padding:0 16px}
+  .card{padding:20px}
+  .profile img{width:60px;height:60px}
+  .text{font-size:15px}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* 1. STILIZIMI I SEKSIONIT DHE HEADERIT */
+/* ========================================= */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.team-section {
+    background-color: #171c26; 
+    color: black;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.header-content {
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.header-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold; 
+}
+
+.header-content p {
+    color: white;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.team-grid-container {
+    max-width: 1300px; /* E zmadhojmë pak max-width që të zënë vend kartelat e reja */
+    margin: 0 auto;
+}
+
+.team-row {
+    display: flex;
+    margin-bottom: 25px; /* Rritim pak hapësirën mes rreshtave */
+    overflow: hidden; 
+}
+
+.slider-content {
+    display: flex;
+    gap: 20px;
+    white-space: nowrap; 
+    transition: none; 
+}
+
+.slider-content.animate {
+    transition: transform 0.5s ease-in-out; 
+}
+
+.team-member {
+    /* NDRYSHIMI KRYESOR: Gjerësia e re e kartelës */
+    width: 300px; 
+    flex-shrink: 0; 
+    height: 130px;
+    
+    background-color:white; 
+    border-radius: 14px; /* E bëjmë pak më të rrumbullakosur */
+    padding: 25px; /* Rritim padding-un për lartësi dhe gjerësi vizuale */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Hije më e theksuar */
+    
+    display: flex;
+    align-items: center; 
+    gap: 20px; /* Rritim pak hapësirën brenda kartelës */
+    text-align: left; 
+}
+
+.member-photo {
+    /* Rritim madhësinë e fotos */
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%; 
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    flex-grow: 1; 
+}
+
+.member-info strong {
+    font-size: 18px; /* Zmadhojmë emrin */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px; 
+    line-height: 1.2;
+}
+
+.member-info span {
+    font-size: 14px; /* Zmadhojmë pozicionin */
+    color: #8c929e;
+    line-height: 1.2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-container-academy {
+    background-color: #ffffff; /* Sfondi i bardhë */
+    color: #333333; /* Teksti i errët */
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Poppins', sans-serif; /* Përdorim Poppins nëse është i lidhur */
+    border-top: 1px solid #f0f0f0;
+}
+
+.footer-content-academy {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex-basis: 25%;
+    padding-right: 30px;
+}
+
+/* Stilizimi i Logos */
+.roi-logo-footer {
+    height: 40px; 
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* Stilizimi i Kontaktit */
+.contact-info-academy p {
+    font-size: 14px;
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.contact-info-academy i {
+    margin-right: 8px;
+    color: #1a4d7d; /* Ngjyra primare (blu) */
+    width: 15px; /* Për të rreshtuar ikonat */
+    text-align: center;
+}
+
+/* Stilizimi i Titujve të Seksioneve */
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Stilizimi i Linqeve (Programet & Quick Links) */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #090126; /* Ngjyra e lehtë gri për linqet */
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+
+
+/* Seksioni Subscribe */
+.subscribe-form-academy {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.subscribe-form-academy input[type="email"] {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 200px;
+    background-color: #eeeeee; /* Sfondi gri i lehtë i inputit */
+    color: #333;
+}
+
+.subscribe-form-academy button {
+    background-color: #212529; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.roi-holding-text {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    color: #666;
+}
+
+/* Ikonat Sociale */
+.social-icons-academy {
+    margin-top: 15px;
+}
+
+.social-icon-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 16px;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.facebook { background-color: #3b5998; }
+.instagram { background-color: #c13584; }
+.linkedin { background-color: #0077b5; }
+.twitter { background-color: #212529; } /* Për shkak të logos 'X' */
+
+
+/* Rreshti i fundit i Copyright */
+.footer-bottom-academy {
+    background-color: #ffffff; /* Sfondi i bardhë */
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 30px;
+    font-size: 13px;
+    color: #666;
+    border-top: 1px solid #eeeeee;
+}
+
+
+
+
+/* Kontejneri Kryesor */
+.meeting-photos-strip {
+    width: 100%;
+    max-width: 100vw; 
+    overflow: hidden; /* Siguron që nuk ka tejkalim */
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontejneri i Imazheve (Këtu përdorim Flexbox) */
+.image-strip {
+    display: flex; /* Kjo i rreshton elementet fëmijë horizontalisht */
+    width: 100%;
+    /* Flexbox siguron që nuk ka hapësirë boshe ndërmjet imazheve */
+}
+
+/* Imazhet individuale */
+.strip-image {
+    /* Secili imazh zë saktësisht 1/4 (25%) të gjerësisë së kontejnerit */
+    flex: 1 1 25%; /* Shkurtim për flex-grow: 1, flex-shrink: 1, flex-basis: 25% */
+    width: 25%; /* Për siguri në shfletuesit e vjetër */
+    height: auto; /* Ruaj proporcionin e lartësisë */
+    display: block;
+    object-fit: cover; /* Nëse imazhet kanë lartësi të ndryshme, i bën të duken uniforme */
+}

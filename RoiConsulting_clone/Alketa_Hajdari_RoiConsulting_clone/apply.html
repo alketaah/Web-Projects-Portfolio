@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apliko Tani- ROI Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="apply.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* Përdorimi i Poppins nëse e keni lidhur atë */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Kufizimi i gjerësisë së Navbar-it (opsionale) */
+.custom-container {
+    max-width: 1200px;
+}
+
+/* Stilizimi i Navbar-it në tërësi */
+.custom-navbar {
+    background-color: #ffffff; /* Sfondi i bardhë */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee; /* Linja ndarëse e lehtë, opsionale */
+}
+
+
+/* Stilizimi i Linkeve të Navigimit */
+.nav-link-custom {
+    color: #333333 !important; /* Teksti i linkeve në të zezë */
+    font-size: 15px;
+    font-weight: 600; /* Font pak më i trashë se normalja */
+    margin: 0 10px; /* Hapësira mes linkeve */
+    padding: 10px 15px;
+    transition: color 0.2s;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+}
+
+
+.nav-link-custom:focus, 
+.nav-link-custom:active,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: transparent !important; /* Sfondi i bardhë zakonisht ndodh këtu */
+}
+
+.nav-item.active .nav-link-custom {
+    background-color: transparent !important;
+}
+
+
+.nav-link-custom:hover {
+    color: #1a4d7d !important; /* Ngjyra primare kur kalon miu */
+    border-bottom: 4px solid #1a4d7d;
+    background-color: transparent !important;
+}
+
+/* Stilizimi i shigjetës së Dropdown */
+.dropdown-toggle::after {
+    margin-left: 0.25em;
+    vertical-align: middle;
+}
+
+/* Pozicionimi i Linkeve në Mes */
+.navbar-nav {
+    /* Për të shtyrë linket në qendër të hapësirës së lirë */
+    margin-left: auto; 
+    margin-right: 50px; /* Vendosni hapësirën e dëshiruar në të djathtë para butonit */
+}
+
+/* Stilizimi i Butonit "Apply Now" */
+.apply-now-btn {
+    background-color: #212529; /* Ngjyra e zezë e errët */
+    color: #ffffff;
+    border: none;
+    padding: 10px 25px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    /* Siguron që butoni të shfaqet në skaj të djathtë kur ekrani është i madh */
+    margin-left: auto !important; 
+}
+
+.apply-now-btn:hover {
+    background-color: #fcfdff;
+    color: #111010;
+    border: 1px solid black;
+}
+
+
+/* Stilizimi i Kutisë së Dropdown (Lista) */
+.dropdown-menu {
+    font-family: Arial, sans-serif; /* Zgjedhni një font tjetër (p.sh., Arial, Verdana). */
+    font-size: 15px; /* Ndryshoni madhësinë e fontit brenda listës */
+    padding: 0; /* Heq padding-un standard të Bootstrap */
+    border: none; /* Heq kufirin standard */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shton një hije të lehtë */
+}
+
+/* Stilizimi i çdo Linku brenda Dropdown */
+.dropdown-item {
+    color: #333 !important; /* Ngjyra normale e tekstit brenda dropdown-it */
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+/* Efekti Hover (Kalimi i Miut) brenda Dropdown Menu */
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #10385e !important; /* Ngjyra e Kaltër e ROI */
+    color: #ffffff !important; /* Teksti i Bardhë */
+}
+
+
+
+/* Rregullimet për pajisjet celulare (responsive) */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        margin-right: 0;
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .apply-now-btn {
+        display: block; /* Butoni merr gjerësinë e plotë */
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+
+
+/* Stilizimi i Seksionit (Sfondi i lehtë gri) */
+.application-form-section {
+    background-color: #f7f7f7; /* Ngjyra e lehtë gri e sfondit */
+    padding: 60px 0;
+}
+
+/* Stilizimi i Titujve */
+.application-form-section h2 {
+    font-size: 32px;
+    font-weight: 600; /* Bolding mesatar */
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.application-form-section .lead-text {
+    font-size: 16px;
+    color:#A1A1A1;
+    margin-bottom: 40px;
+}
+
+/* Stilizimi i Label-ave (Përshkrimi i Fushës) */
+.form-label {
+    font-size: 16px;
+    font-weight: 500;
+    color:#A1A1A1; /* Ngjyra e hirit */
+    margin-bottom: 5px;
+    display: block; /* E bën label-in të marrë hapësirën e vet */
+}
+
+/* Stilizimi i Fushave të Inputit (Input/Textarea) */
+.form-control {
+    border: 1px solid #dee2e6; /* Kufi i lehtë gri */
+    border-radius: 10px;
+    padding: 8px 12px; /* Rrit padding-un për fushat e gjera */
+    font-size: 16px;
+    box-shadow: none !important; /* Heq hijezimet e fokusit të Bootstrap */
+}
+
+.form-control:focus {
+    border-color: #cccccc; /* Ngjyra e kufirit kur fokusohet */
+}
+
+/* Stilizimi i Butonit SUBMIT */
+.submit-application-btn {
+    width: 100%; /* Merr gjerësinë e plotë të kontainerit */
+    background-color: #212529; /* Ngjyra e errët, si butoni 'Apply Now' */
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.submit-application-btn:hover {
+    background-color: #4587c2;
+    color: #ffffff;
+}
+
+.form-wrapper {
+    /* Vendosni gjerësinë maksimale (p.sh., 700px). Mund ta rregulloni këtë vlerë. */
+    max-width: 100px; 
+    
+    /* Qendrimi i formës në ekranet desktop (Auto margin në të dy anët) */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Stilizimi i Përgjithshëm i Footer-it (ROI Academy) */
+.footer-container-academy {
+    background-color: #ffffff; /* Sfondi i bardhë */
+    color: #333333; /* Teksti i errët */
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Poppins', sans-serif; /* Përdorim Poppins nëse është i lidhur */
+    border-top: 1px solid #f0f0f0;
+}
+
+.footer-content-academy {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex-basis: 25%;
+    padding-right: 30px;
+}
+
+/* Stilizimi i Logos */
+.roi-logo-footer {
+    height: 40px; 
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* Stilizimi i Kontaktit */
+.contact-info-academy p {
+    font-size: 14px;
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.contact-info-academy i {
+    margin-right: 8px;
+    color: #1a4d7d; /* Ngjyra primare (blu) */
+    width: 15px; /* Për të rreshtuar ikonat */
+    text-align: center;
+}
+
+/* Stilizimi i Titujve të Seksioneve */
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Stilizimi i Linqeve (Programet & Quick Links) */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #090126; /* Ngjyra e lehtë gri për linqet */
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+
+
+/* Seksioni Subscribe */
+.subscribe-form-academy {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.subscribe-form-academy input[type="email"] {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 200px;
+    background-color: #eeeeee; /* Sfondi gri i lehtë i inputit */
+    color: #333;
+}
+
+.subscribe-form-academy button {
+    background-color: #212529; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.roi-holding-text {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    color: #666;
+}
+
+/* Ikonat Sociale */
+.social-icons-academy {
+    margin-top: 15px;
+}
+
+.social-icon-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 16px;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.facebook { background-color: #3b5998; }
+.instagram { background-color: #c13584; }
+.linkedin { background-color: #0077b5; }
+.twitter { background-color: #212529; } /* Për shkak të logos 'X' */
+
+
+/* Rreshti i fundit i Copyright */
+.footer-bottom-academy {
+    background-color: #ffffff; /* Sfondi i bardhë */
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 30px;
+    font-size: 13px;
+    color: #666;
+    border-top: 1px solid #eeeeee;
+}
+</style> 
+    </head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+        <div class="container-fluid custom-container">
+            
+           <a class="navbar-brand" href="#">
+            <img src="https://roiacademy.net/wp-content/uploads/2025/06/roi-academy-logo-e1750817553650.png" alt="ROI Academy Logo" class="roi-logo-img">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto"> <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-link-custom" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Programet 6-12 mujore
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="#">Të gjitha programet</a></li>
+                            <li><a class="dropdown-item" href="#">Trajnim për Programim</a></li>
+                            <li><a class="dropdown-item" href="#">Trajnim për Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="#">Trajnim për Siguri Kibernetike</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link  nav-link-custom" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Programet 1-2 mujore
+                        </a>
+                        
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#">Future-Generations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#">ROI Kids</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#">Rreth ROI Academy</a>
+                    </li>
+                </ul>
+                
+                <a href="#" class="btn btn-primary apply-now-btn">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+<section class="application-form-section">
+    <div class="container py-5">
+        
+        <div class="text-content mb-3">
+            <h2>Apliko dhe përfitoni nga oferta aktuale</h2>
+            <p class="lead-text">Për të aplikuar, ju lutem plotësoni fushat më poshtë:</p>
+        </div>
+
+        <form class="application-form">
+            
+            <div class="row mb-2">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <label for="name" class="form-label">Emër</label>
+                    <input type="text" class="form-control" id="name" placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label for="surname" class="form-label">Mbiemër</label>
+                    <input type="text" class="form-control" id="surname" placeholder="">
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label for="phone" class="form-label">Numri i telefonit</label>
+                <input type="tel" class="form-control" id="phone" placeholder="">
+            </div>
+
+            <div class="mb-2">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="">
+            </div>
+
+            <div class="mb-2">
+                <label for="training" class="form-label">Për cilin trajnim jeni i/e interesuar?</label>
+                <input type="text" class="form-control" id="training" placeholder="">
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5" placeholder=""></textarea>
+            </div>
+
+            <button type="submit" class="btn submit-application-btn">
+                SUBMIT APLICATION
+            </button>
+
+        </form>
+    </div>
+</section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Kodi për të aktivizuar dropdown-et (vetëm ato që kanë klasën 'dropdown') me HOVER
+        document.addEventListener("DOMContentLoaded", function() {
+            // Gjen vetëm elementet LI që kanë klasat 'nav-item' DHE 'dropdown'
+            var dropdowns = document.querySelectorAll('.nav-item.dropdown');
+            
+            dropdowns.forEach(function(dropdown) {
+                var dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+                
+                // Mbyll klikimin standard, nëse dëshironi që butoni të funksionojë vetëm me hover
+                if (dropdownToggle) {
+                    dropdownToggle.addEventListener('click', function(e) {
+                        e.preventDefault(); 
+                        e.stopPropagation();
+                    });
+                }
+
+                // Funksioni për hapje me HOVER
+                dropdown.addEventListener('mouseenter', function() {
+                    // Përdor show() për të hapur dropdown-in
+                    var bsDropdown = new bootstrap.Dropdown(dropdownToggle);
+                    bsDropdown.show();
+                });
+
+                // Funksioni për mbyllje me LEAVE
+                dropdown.addEventListener('mouseleave', function() {
+                    // Përdor hide() për të mbyllur dropdown-in
+                    var bsDropdown = bootstrap.Dropdown.getInstance(dropdownToggle);
+                    if (bsDropdown) {
+                        bsDropdown.hide();
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer class="footer-container-academy">
+    <div class="footer-content-academy">
+
+        <div class="footer-section contact-info-academy">
+            <div class="logo-academy">
+                <img src="https://roiacademy.net/wp-content/uploads/2025/06/roi-academy-logo-e1750817553650.png" alt="ROI Academy Logo" class="roi-logo-footer">
+            </div>
+            
+            <p><i class="fas fa-phone"></i> +383 48 180 194</p>
+            <p><i class="fas fa-phone"></i> +355 68 500 0125</p>
+            <p><i class="fas fa-phone"></i> +389 78 243 666</p>
+            <p><i class="fas fa-envelope"></i> info@roiacademy.net</p>
+            
+            <p><i class="fas fa-map-marker-alt"></i> Icon Tower, Tiranë, Prishtina 10000</p>
+            <p><i class="fas fa-map-marker-alt"></i> Zogu I Blvd, Tiranë 1001, Albania</p>
+            <p><i class="fas fa-map-marker-alt"></i> Str Macedonia, Skopje 1000, N. Macedonia</p>
+            <p><i class="fas fa-map-marker-alt"></i> 33 City & Central, Marylebone Lane, England</p>
+        </div>
+
+        <div class="footer-section programet-links">
+            <h3>Programet</h3>
+            <ul>
+                <li><a href="#">- 6 Muaj</a></li>
+                <li><a href="#">- 1-2 Muaj</a></li>
+                <li><a href="#">- Future Generations</a></li>
+                <li><a href="#">- ROI Kids</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section quick-links-academy">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="https://roihunting.com/">- Ballina</a></li>
+                <li><a href="#">- Programet</a></li>
+                <li><a href="#">- Rreth ROI Academy</a></li>
+                <li><a href="#">- Ekipi</a></li>
+                <li><a href="#">- Blogu</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section subscribe-section-academy">
+            <h3>Subscribe</h3>
+            <div class="subscribe-form-academy">
+                <input type="email" placeholder="Email">
+                <button type="submit">SUBMIT</button>
+            </div>
+            
+            <p class="roi-holding-text">ROI Academy is part of:</p>
+            <div class="roi-holding-logo-academy">
+                <img src="https://roiacademy.net/wp-content/uploads/2025/06/roi-academy-logo-e1750817553650.png" alt="ROI Holding Logo" style="height: 30px;"> 
+            </div>
+
+            <div class="social-icons-academy">
+                <a href="https://www.facebook.com/roiacademy1" class="social-icon-box facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/roiacademy/" class="social-icon-box instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/roi-academy/" class="social-icon-box linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a  class="social-icon-box twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-academy">
+            <p>&copy; Copyrights <strong>ROI Hunting</strong>. All rights reserved. – Developed by <strong>Sharp Group</strong>  </p>
+    </div>
+</footer>
+</html>
+ 

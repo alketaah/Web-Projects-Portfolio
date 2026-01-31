@@ -1,0 +1,73 @@
+/* Responsive Design për Footer */
+@media (max-width: 992px) {
+    .footer-content-academy {
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex-basis: 48%; /* Dy kolona në tableta */
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content-academy {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        flex-basis: 100%; /* Një kolonë në celularë */
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .subscribe-form-academy {
+        flex-direction: column;
+    }
+    
+    .subscribe-form-academy input[type="email"] {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .subscribe-form-academy button {
+        width: 100%;
+        border-radius: 4px;
+    }
+    
+    .contact-info-academy p {
+        font-size: 13px;
+    }
+    
+    .footer-section h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-section ul li a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container-academy {
+        padding-top: 30px;
+    }
+    
+    .roi-logo-footer {
+        height: 35px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-bottom-academy {
+        font-size: 12px;
+        padding: 12px 15px;
+    }
+    
+    .social-icon-box {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
