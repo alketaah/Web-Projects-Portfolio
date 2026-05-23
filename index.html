@@ -72,13 +72,13 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem
 .ptag{font-size:0.72rem;padding:3px 10px;border-radius:50px;background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
 .project-link{margin-top:1.5rem;display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--accent);text-decoration:none;letter-spacing:0.05em;transition:gap 0.2s}
 .project-link:hover{gap:10px}
-.preview-box{background:var(--surface2);border-radius:12px;height:200px;border:1px solid var(--border);padding:1.2rem;display:flex;flex-direction:column;gap:8px;overflow:hidden}
-.mock-bar{height:8px;background:var(--border);border-radius:4px}
-.mock-bar.a{background:var(--accent);opacity:0.5;width:55%}
-.mock-bar.b{width:80%}
-.mock-bar.c{width:40%}
-.mock-row{display:flex;gap:6px;flex:1}
-.mock-block{background:var(--border);border-radius:6px;flex:1}
+.preview-box{border-radius:12px;height:220px;border:1px solid var(--border);overflow:hidden;position:relative;background:var(--surface2)}
+.preview-box iframe{width:200%;height:200%;transform:scale(0.5);transform-origin:top left;border:none;pointer-events:none}
+.project-btns{display:flex;gap:0.75rem;margin-top:1.25rem;flex-wrap:wrap}
+.btn-live{background:var(--accent);color:#0a0a0a;padding:0.5rem 1.2rem;border-radius:50px;font-size:0.78rem;font-weight:500;text-decoration:none;transition:background 0.2s,transform 0.15s;display:inline-flex;align-items:center;gap:5px}
+.btn-live:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-code{background:transparent;color:var(--muted);padding:0.5rem 1.2rem;border-radius:50px;font-size:0.78rem;text-decoration:none;border:1px solid var(--border);transition:all 0.2s;display:inline-flex;align-items:center;gap:5px}
+.btn-code:hover{border-color:var(--muted);color:var(--text);transform:translateY(-1px)}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
@@ -191,21 +191,13 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
           <span class="ptag">Bootstrap 5</span>
           <span class="ptag">Responsive</span>
         </div>
-        <a href="https://alketaah.github.io/Web-Projects-Portfolio/ROI%20Academy/index.html" class="project-link" target="_blank">Live demo ↗</a>
+        <div class="project-btns">
+          <a href="https://alketaah.github.io/Web-Projects-Portfolio/ROI%20Academy/index.html" class="btn-live" target="_blank">View Live ↗</a>
+          <a href="https://github.com/alketaah/Web-Projects-Portfolio/tree/main/ROI%20Academy" class="btn-code" target="_blank">&lt;/&gt; View Code</a>
+        </div>
       </div>
       <div class="preview-box">
-        <div class="mock-bar a"></div>
-        <div class="mock-bar b"></div>
-        <div class="mock-bar c"></div>
-        <div class="mock-row" style="margin-top:4px">
-          <div class="mock-block"></div>
-          <div class="mock-block"></div>
-          <div class="mock-block"></div>
-        </div>
-        <div class="mock-row">
-          <div class="mock-block" style="flex:2"></div>
-          <div class="mock-block"></div>
-        </div>
+        <iframe src="https://alketaah.github.io/Web-Projects-Portfolio/ROI%20Academy/index.html" loading="lazy" title="ROI Academy Preview"></iframe>
       </div>
     </div>
 
@@ -218,7 +210,13 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
         <span class="ptag">CSS3</span>
         <span class="ptag">Team Project</span>
       </div>
-      <a href="https://alketaah.github.io/Web-Projects-Portfolio/SHPIRAGU%20AL/index.html" class="project-link" target="_blank">View project ↗</a>
+      <div class="preview-box" style="margin-bottom:1rem">
+        <iframe src="https://alketaah.github.io/Web-Projects-Portfolio/SHPIRAGU%20AL/index.html" loading="lazy" title="Shpiragu Preview"></iframe>
+      </div>
+      <div class="project-btns">
+        <a href="https://alketaah.github.io/Web-Projects-Portfolio/SHPIRAGU%20AL/index.html" class="btn-live" target="_blank">View Live ↗</a>
+        <a href="https://github.com/alketaah/Web-Projects-Portfolio/tree/main/SHPIRAGU%20AL" class="btn-code" target="_blank">&lt;/&gt; View Code</a>
+      </div>
     </div>
 
     <div class="project-card">
@@ -230,19 +228,31 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
         <span class="ptag">CSS3</span>
         <span class="ptag">Bootstrap</span>
       </div>
-      <a href="https://alketaah.github.io/Web-Projects-Portfolio/ifmc%20al/index.html" class="project-link" target="_blank">View project ↗</a>
+      <div class="preview-box" style="margin-bottom:1rem">
+        <iframe src="https://alketaah.github.io/Web-Projects-Portfolio/ifmc%20al/index.html" loading="lazy" title="IFMC Preview"></iframe>
+      </div>
+      <div class="project-btns">
+        <a href="https://alketaah.github.io/Web-Projects-Portfolio/ifmc%20al/index.html" class="btn-live" target="_blank">View Live ↗</a>
+        <a href="https://github.com/alketaah/Web-Projects-Portfolio/tree/main/ifmc%20al" class="btn-code" target="_blank">&lt;/&gt; View Code</a>
+      </div>
     </div>
 
     <div class="project-card">
       <div class="project-num">04</div>
       <div class="project-title">ROI Consulting Clone</div>
-      <p class="project-desc">Designed and managed a relational database at University of Prishtina using SQL — joins, aggregations, and full data modeling from scratch.</p>
+      <p class="project-desc">Web clone of the ROI Consulting website, built with Bootstrap 5 with full responsive layout and multi-page structure.</p>
       <div class="project-tags">
         <span class="ptag">HTML5</span>
         <span class="ptag">CSS3</span>
         <span class="ptag">Bootstrap</span>
       </div>
-      <a href="https://alketaah.github.io/Web-Projects-Portfolio/RoiConsulting_clone/Alketa_Hajdari_RoiConsulting_clone/index.html" class="project-link" target="_blank">View project ↗</a>
+      <div class="preview-box" style="margin-bottom:1rem">
+        <iframe src="https://alketaah.github.io/Web-Projects-Portfolio/RoiConsulting_clone/Alketa_Hajdari_RoiConsulting_clone/index.html" loading="lazy" title="ROI Consulting Preview"></iframe>
+      </div>
+      <div class="project-btns">
+        <a href="https://alketaah.github.io/Web-Projects-Portfolio/RoiConsulting_clone/Alketa_Hajdari_RoiConsulting_clone/index.html" class="btn-live" target="_blank">View Live ↗</a>
+        <a href="https://github.com/alketaah/Web-Projects-Portfolio/tree/main/RoiConsulting_clone/Alketa_Hajdari_RoiConsulting_clone" class="btn-code" target="_blank">&lt;/&gt; View Code</a>
+      </div>
     </div>
 
   </div>
@@ -291,7 +301,7 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 </section>
 
 <footer>
-  <span>Alketa Hajdari © 2026</span>
+  <span>Alketa Hajdari © 2025</span>
   <span>Fushë Kosovë, Kosovo</span>
 </footer>
 
