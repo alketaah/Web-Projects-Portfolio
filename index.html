@@ -1,27 +1,298 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofoli Im</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 40px; background-color: #f4f4f4; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .btn { display: block; background-color: #238636; color: white; padding: 15px; margin: 10px 0; text-decoration: none; border-radius: 6px; font-weight: bold; }
-        .btn:hover { background-color: #2ea043; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alketa Hajdari — Front-End Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;
+  --surface:#141414;
+  --surface2:#1e1e1e;
+  --accent:#c8f06e;
+  --accent2:#a8d84e;
+  --text:#f0ede6;
+  --muted:#888;
+  --border:#2a2a2a;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);z-index:100}
+.logo{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--text);letter-spacing:-0.02em;text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.available{display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--muted)}
+.dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* HERO */
+.hero{padding:6rem 3rem 4rem;max-width:1100px;margin:0 auto}
+.hero-label{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.hero-label::before{content:'';width:30px;height:1px;background:var(--muted)}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-desc{max-width:480px;color:var(--muted);line-height:1.7;font-size:0.95rem;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#0a0a0a;padding:0.75rem 1.75rem;border-radius:50px;font-size:0.85rem;font-weight:500;text-decoration:none;letter-spacing:0.04em;transition:background 0.2s,transform 0.15s;display:inline-block}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--text);padding:0.75rem 1.75rem;border-radius:50px;font-size:0.85rem;font-weight:400;text-decoration:none;letter-spacing:0.04em;border:1px solid var(--border);transition:border-color 0.2s,transform 0.15s;display:inline-block}
+.btn-outline:hover{border-color:var(--muted);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.stat-num{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--text)}
+.stat-label{font-size:0.78rem;color:var(--muted);margin-top:4px;letter-spacing:0.05em}
+
+/* SECTIONS */
+.section{padding:4rem 3rem;max-width:1100px;margin:0 auto}
+.section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
+.section-tag{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);background:var(--surface2);padding:4px 12px;border-radius:50px;border:1px solid var(--border);white-space:nowrap}
+.section-line{flex:1;height:1px;background:var(--border)}
+
+/* SKILLS */
+.skills-grid{display:flex;flex-wrap:wrap;gap:0.75rem}
+.skill-tag{padding:0.5rem 1.1rem;border-radius:50px;font-size:0.82rem;border:1px solid var(--border);color:var(--muted);background:var(--surface);transition:all 0.2s;cursor:default}
+.skill-tag:hover{border-color:var(--accent);color:var(--accent)}
+.skill-tag.accent{background:var(--accent);color:#0a0a0a;border-color:var(--accent);font-weight:500}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color 0.25s,transform 0.2s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.project-card:hover{border-color:#444;transform:translateY(-3px)}
+.project-card:hover::before{transform:scaleX(1)}
+.project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.project-num{font-size:0.72rem;letter-spacing:0.12em;color:var(--muted);margin-bottom:1.2rem;text-transform:uppercase}
+.project-title{font-family:'DM Serif Display',serif;font-size:1.5rem;margin-bottom:0.75rem;line-height:1.2}
+.project-desc{color:var(--muted);font-size:0.85rem;line-height:1.6;margin-bottom:1.5rem}
+.project-tags{display:flex;gap:0.5rem;flex-wrap:wrap}
+.ptag{font-size:0.72rem;padding:3px 10px;border-radius:50px;background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+.project-link{margin-top:1.5rem;display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--accent);text-decoration:none;letter-spacing:0.05em;transition:gap 0.2s}
+.project-link:hover{gap:10px}
+.preview-box{background:var(--surface2);border-radius:12px;height:200px;border:1px solid var(--border);padding:1.2rem;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.mock-bar{height:8px;background:var(--border);border-radius:4px}
+.mock-bar.a{background:var(--accent);opacity:0.5;width:55%}
+.mock-bar.b{width:80%}
+.mock-bar.c{width:40%}
+.mock-row{display:flex;gap:6px;flex:1}
+.mock-block{background:var(--border);border-radius:6px;flex:1}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-text p{color:var(--muted);line-height:1.8;font-size:0.9rem;margin-bottom:1rem}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem}
+.edu-year{font-size:0.72rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:0.5rem;text-transform:uppercase}
+.edu-title{font-weight:500;margin-bottom:0.25rem;font-size:0.95rem}
+.edu-sub{font-size:0.82rem;color:var(--muted);line-height:1.5}
+.cert-list{display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem}
+.cert-item{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--muted)}
+.cert-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+
+/* CONTACT */
+.contact-section{padding:4rem 3rem;border-top:1px solid var(--border);max-width:1100px;margin:0 auto}
+.contact-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
+.contact-left h2{font-family:'DM Serif Display',serif;font-size:2.5rem;margin-bottom:0.5rem;line-height:1.15}
+.contact-left p{color:var(--muted);font-size:0.9rem}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem}
+.contact-link{padding:0.65rem 1.4rem;border-radius:50px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:0.82rem;transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+
+footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;color:var(--muted);font-size:0.78rem;max-width:1100px;margin:0 auto}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{padding:3rem 1.5rem 2rem}
+  .section{padding:2.5rem 1.5rem}
+  .projects-grid{grid-template-columns:1fr}
+  .project-card.featured{grid-column:auto;grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .contact-section{padding:2.5rem 1.5rem}
+  .contact-inner{flex-direction:column;align-items:flex-start}
+  footer{padding:1.5rem;flex-direction:column;gap:0.5rem}
+  .hero-stats{gap:2rem}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Projektet e Mia</h1>
-        
-        <a href="ROI%20Academy/index.html" class="btn">1. ROI Academy Clone</a>
 
-        <a href="SHPIRAGU%20AL/index.html" class="btn">2. Shpiragu Clone</a>
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Alketa Hajdari</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="available">
+    <span class="dot"></span>
+    Available for hire
+  </div>
+</nav>
 
-        <a href="ifmc%20al/index.html" class="btn">3. IFMC Clone</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Junior Front-End Developer</div>
+  <h1>Building clean,<br><em>responsive</em><br>interfaces.</h1>
+  <p class="hero-desc">Computer Science student at University of Prishtina. I turn designs into fast, accessible web experiences using HTML, CSS, Bootstrap &amp; JavaScript.</p>
+  <div class="hero-actions">
+    <a href="https://alketaah.github.io/Web-Projects-Portfolio/" class="btn-primary" target="_blank">View Live Projects ↗</a>
+    <a href="#contact" class="btn-outline">Get in touch</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">4+</div><div class="stat-label">Projects Built</div></div>
+    <div><div class="stat-num">2026</div><div class="stat-label">BSc. Grad Year</div></div>
+    <div><div class="stat-num">MOS</div><div class="stat-label">Certified</div></div>
+  </div>
+</section>
 
-        <a href="RoiConsulting_clone/Alketa_Hajdari_RoiConsulting_clone/index.html" class="btn">4. ROI Consulting</a>
+<!-- SKILLS -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-tag">Skills</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <span class="skill-tag accent">HTML5</span>
+    <span class="skill-tag accent">CSS3</span>
+    <span class="skill-tag accent">Bootstrap 5</span>
+    <span class="skill-tag accent">JavaScript</span>
+    <span class="skill-tag">Responsive Design</span>
+    <span class="skill-tag">GitHub</span>
+    <span class="skill-tag">SQL</span>
+    <span class="skill-tag">Microsoft Access</span>
+    <span class="skill-tag">Excel Advanced</span>
+    <span class="skill-tag">Power BI</span>
+    <span class="skill-tag">UI/UX Principles</span>
+    <span class="skill-tag">MS Office Specialist</span>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="work">
+  <div class="section-header">
+    <span class="section-tag">Work</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div>
+        <div class="project-num">01 — Featured</div>
+        <div class="project-title">ROI Academy Clone</div>
+        <p class="project-desc">Fully responsive landing page built with Bootstrap 5, replicating the ROI Academy website with pixel-accurate layout and cross-browser compatibility.</p>
+        <div class="project-tags">
+          <span class="ptag">HTML5</span>
+          <span class="ptag">CSS3</span>
+          <span class="ptag">Bootstrap 5</span>
+          <span class="ptag">Responsive</span>
+        </div>
+        <a href="https://alketaah.github.io/Web-Projects-Portfolio/" class="project-link" target="_blank">Live demo ↗</a>
+      </div>
+      <div class="preview-box">
+        <div class="mock-bar a"></div>
+        <div class="mock-bar b"></div>
+        <div class="mock-bar c"></div>
+        <div class="mock-row" style="margin-top:4px">
+          <div class="mock-block"></div>
+          <div class="mock-block"></div>
+          <div class="mock-block"></div>
+        </div>
+        <div class="mock-row">
+          <div class="mock-block" style="flex:2"></div>
+          <div class="mock-block"></div>
+        </div>
+      </div>
     </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">Shpiragu Clone</div>
+      <p class="project-desc">Collaborative web project replicating the Shpiragu website, focusing on UI components, layout structure, and cross-browser compatibility.</p>
+      <div class="project-tags">
+        <span class="ptag">HTML5</span>
+        <span class="ptag">CSS3</span>
+        <span class="ptag">Team Project</span>
+      </div>
+      <a href="https://alketaah.github.io/Web-Projects-Portfolio/" class="project-link" target="_blank">View project ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">IFMC Clone</div>
+      <p class="project-desc">Web interface clone with focus on cross-browser compatibility, semantic HTML structure, and responsive layout implementation.</p>
+      <div class="project-tags">
+        <span class="ptag">HTML5</span>
+        <span class="ptag">CSS3</span>
+        <span class="ptag">Bootstrap</span>
+      </div>
+      <a href="https://alketaah.github.io/Web-Projects-Portfolio/" class="project-link" target="_blank">View project ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">04</div>
+      <div class="project-title">Relational Database System</div>
+      <p class="project-desc">Designed and managed a relational database at University of Prishtina using SQL — joins, aggregations, and full data modeling from scratch.</p>
+      <div class="project-tags">
+        <span class="ptag">SQL</span>
+        <span class="ptag">MS Access</span>
+        <span class="ptag">Academic</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-header">
+    <span class="section-tag">About</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a final-year Computer Science student at the University of Prishtina, passionate about building clean and functional web interfaces. I enjoy the intersection of design and code — making things that look good and work beautifully.</p>
+      <p>Beyond front-end, I have a strong foundation in databases and data tools, which helps me think about the full picture when building web applications.</p>
+      <p>Currently looking for a junior or intern position where I can contribute, learn fast, and grow alongside a talented team.</p>
+    </div>
+    <div>
+      <div class="edu-card">
+        <div class="edu-year">2021 – 2026</div>
+        <div class="edu-title">Bachelor of Computer Science</div>
+        <div class="edu-sub">University of Prishtina "Hasan Prishtina"<br>Faculty of Mathematics &amp; Natural Sciences (FSHMN)</div>
+      </div>
+      <div class="cert-list">
+        <div class="cert-item"><span class="cert-dot"></span> Microsoft Office Specialist (MOS) — Certified</div>
+        <div class="cert-item"><span class="cert-dot"></span> Front-End Development Course — ROI Academy</div>
+        <div class="cert-item"><span class="cert-dot"></span> Database Systems &amp; SQL — University Level</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Let's work<br><em style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--accent)">together.</em></h2>
+      <p>Open to junior &amp; intern opportunities — Prishtina or remote.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:alketaahajdari@gmail.com" class="contact-link">✉ alketaahajdari@gmail.com</a>
+      <a href="https://alketaah.github.io/Web-Projects-Portfolio/" class="contact-link" target="_blank">⟡ GitHub Portfolio</a>
+      <a href="tel:+38349403263" class="contact-link">✆ +383 49 403 263</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Alketa Hajdari © 2025</span>
+  <span>Fushë Kosovë, Kosovo</span>
+</footer>
+
 </body>
 </html>
